@@ -7,17 +7,13 @@ import { tokens } from '../../../locales/tokens';
 
 const languageOptions = {
   en: {
-    icon: '/assets/flags/flag-uk.svg',
-    label: 'English'
+    icon: "/assets/flags/flag-uk.svg",
+    label: "English",
   },
-  de: {
-    icon: '/assets/flags/flag-de.svg',
-    label: 'German'
+  vi: {
+    icon: "/assets/flags/flag-vn.svg",
+    label: "Vietnamese",
   },
-  es: {
-    icon: '/assets/flags/flag-es.svg',
-    label: 'Spanish'
-  }
 };
 
 export const LanguagePopover = (props) => {

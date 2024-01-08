@@ -165,11 +165,7 @@ export const CustomerListTable = (props) => {
               const totalSpent = numeral(customer.totalSpent).format(`${customer.currency}0,0.00`);
 
               return (
-                <TableRow
-                  hover
-                  key={customer.id}
-                  selected={isSelected}
-                >
+                <TableRow hover key={customer.id} selected={isSelected}>
                   <TableCell padding="checkbox">
                     <Checkbox
                       checked={isSelected}
@@ -186,16 +182,12 @@ export const CustomerListTable = (props) => {
                     />
                   </TableCell>
                   <TableCell>
-                    <Stack
-                      alignItems="center"
-                      direction="row"
-                      spacing={1}
-                    >
+                    <Stack alignItems="center" direction="row" spacing={1}>
                       <Avatar
                         src={customer.avatar}
                         sx={{
                           height: 42,
-                          width: 42
+                          width: 42,
                         }}
                       >
                         {getInitials(customer.name)}
@@ -204,35 +196,26 @@ export const CustomerListTable = (props) => {
                         <Link
                           color="inherit"
                           component={NextLink}
-                          href={paths.dashboard.customers.details}
+                          href={paths.customers.details}
                           variant="subtitle2"
                         >
                           {customer.name}
                         </Link>
-                        <Typography
-                          color="text.secondary"
-                          variant="body2"
-                        >
+                        <Typography color="text.secondary" variant="body2">
                           {customer.email}
                         </Typography>
                       </div>
                     </Stack>
                   </TableCell>
+                  <TableCell>{location}</TableCell>
+                  <TableCell>{customer.totalOrders}</TableCell>
                   <TableCell>
-                    {location}
-                  </TableCell>
-                  <TableCell>
-                    {customer.totalOrders}
-                  </TableCell>
-                  <TableCell>
-                    <Typography variant="subtitle2">
-                      {totalSpent}
-                    </Typography>
+                    <Typography variant="subtitle2">{totalSpent}</Typography>
                   </TableCell>
                   <TableCell align="right">
                     <IconButton
                       component={NextLink}
-                      href={paths.dashboard.customers.edit}
+                      href={paths.customers.edit}
                     >
                       <SvgIcon>
                         <Edit02Icon />
@@ -240,7 +223,7 @@ export const CustomerListTable = (props) => {
                     </IconButton>
                     <IconButton
                       component={NextLink}
-                      href={paths.dashboard.customers.details}
+                      href={paths.customers.details}
                     >
                       <SvgIcon>
                         <ArrowRightIcon />

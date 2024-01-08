@@ -15,56 +15,33 @@ export const AuthIssuer = (props) => {
   return (
     <Box
       sx={{
-        borderColor: 'divider',
+        borderColor: "divider",
         borderRadius: 2.5,
-        borderStyle: 'solid',
+        borderStyle: "solid",
         borderWidth: 1,
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        p: 3
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        p: 3,
       }}
     >
-      <Typography variant="body2">
-        Visit our
-        {' '}
-        <Link
-          component="a"
-          href={paths.docs.welcome}
-          target="_blank"
-          underline="hover"
-          variant="subtitle2"
-        >
-          docs
-        </Link>
-        {' '}
-        and find out how to switch between
-      </Typography>
-      <Stack
-        alignItems="center"
-        direction="row"
-        gap={3}
-        sx={{ mt: 2 }}
-      >
+      <Stack alignItems="center" direction="row" gap={3} sx={{ mt: 2 }}>
         {Object.keys(issuers).map((issuer) => {
           const isCurrent = issuer === currentIssuer;
           const icon = issuers[issuer];
 
           return (
-            <Tooltip
-              key={issuer}
-              title={issuer}
-            >
+            <Tooltip key={issuer} title={issuer}>
               <Box
                 component="img"
                 src={icon}
                 sx={{
                   height: 30,
-                  '&:not(:hover)': {
+                  "&:not(:hover)": {
                     ...(!isCurrent && {
-                      filter: 'grayscale(100%)'
-                    })
-                  }
+                      filter: "grayscale(100%)",
+                    }),
+                  },
                 }}
               />
             </Tooltip>
