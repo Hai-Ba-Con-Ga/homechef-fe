@@ -11,7 +11,7 @@ const languageOptions = {
     label: "English",
   },
   vi: {
-    icon: "/assets/flags/flag-vn.svg",
+    icon: "/assets/flags/flag-vi.svg",
     label: "Vietnamese",
   },
 };

@@ -122,7 +122,7 @@ const Page = () => {
   return (
     <>
       <Head>
-        <title>Dashboard: Customer List | Devias Kit PRO</title>
+        <title>Customer | HomeChef</title>
       </Head>
       <Box
         component="main"

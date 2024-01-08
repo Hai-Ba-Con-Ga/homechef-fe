@@ -31,21 +31,20 @@ import { CustomerInvoices } from "../../../sections/dashboard/customer/customer-
 import { CustomerPayment } from "../../../sections/dashboard/customer/customer-payment";
 import { CustomerLogs } from "../../../sections/dashboard/customer/customer-logs";
 import { getInitials } from "../../../utils/get-initials";
-
+import { useRouter } from "next/router";
 const tabs = [
   { label: "Details", value: "details" },
   { label: "Invoices", value: "invoices" },
-  { label: "Logs", value: "logs" },
 ];
 
 const useCustomer = () => {
   const isMounted = useMounted();
   const [customer, setCustomer] = useState(null);
-
+  const router = useRouter();
+  const { customerId } = router.query;
   const getCustomer = useCallback(async () => {
     try {
-      const response = await customersApi.getCustomer();
-
+      const response = await customersApi.getCustomer({ customerId });
       if (isMounted()) {
         setCustomer(response);
       }
@@ -178,13 +177,13 @@ const Page = () => {
               >
                 <Stack alignItems="center" direction="row" spacing={2}>
                   <Avatar
-                    src={customer.avatar}
+                    src={customer.avatarUrl}
                     sx={{
                       height: 64,
                       width: 64,
                     }}
                   >
-                    {getInitials(customer.name)}
+                    {getInitials(customer.fullName)}
                   </Avatar>
                   <Stack spacing={1}>
                     <Typography variant="h4">{customer.email}</Typography>
@@ -243,11 +242,11 @@ const Page = () => {
                     <CustomerBasicDetails
                       address1={customer.address1}
                       address2={customer.address2}
-                      country={customer.country}
+                      country="Vietnam"
                       email={customer.email}
                       isVerified={!!customer.isVerified}
                       phone={customer.phone}
-                      state={customer.state}
+                      state="Ho Chi Minh"
                     />
                   </Grid>
                   <Grid xs={12} lg={8}>

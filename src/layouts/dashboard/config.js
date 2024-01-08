@@ -37,23 +37,13 @@ export const getSections = (t) => [
         ),
       },
       {
-        title: t(tokens.nav.productList),
-        path: paths.dashboard.products.index,
+        title: t(tokens.nav.chef),
+        path: paths.chefs.index,
         icon: (
           <SvgIcon fontSize="small">
             <ShoppingBag03Icon />
           </SvgIcon>
         ),
-        items: [
-          {
-            title: t(tokens.nav.list),
-            path: paths.dashboard.products.index,
-          },
-          {
-            title: t(tokens.nav.create),
-            path: paths.dashboard.products.create,
-          },
-        ],
       },
       {
         title: t(tokens.nav.orderList),

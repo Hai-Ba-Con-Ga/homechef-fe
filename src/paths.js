@@ -97,6 +97,10 @@ export const paths = {
     details: "/customers/:customerId",
     edit: "/customers/:customerId/edit",
   },
+  chefs: {
+    index: "/chefs",
+    details: "/chefs/:chefId",
+  },
   components: {
     index: "/components",
     dataDisplay: {

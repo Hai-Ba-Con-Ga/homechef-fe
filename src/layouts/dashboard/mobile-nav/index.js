@@ -114,43 +114,38 @@ export const MobileNav = (props) => {
       PaperProps={{
         sx: {
           ...cssVars,
-          backgroundColor: 'var(--nav-bg)',
-          color: 'var(--nav-color)',
-          width: MOBILE_NAV_WIDTH
-        }
+          backgroundColor: "var(--nav-bg)",
+          color: "var(--nav-color)",
+          width: MOBILE_NAV_WIDTH,
+        },
       }}
       variant="temporary"
     >
       <Scrollbar
         sx={{
-          height: '100%',
-          '& .simplebar-content': {
-            height: '100%'
+          height: "100%",
+          "& .simplebar-content": {
+            height: "100%",
           },
-          '& .simplebar-scrollbar:before': {
-            background: 'var(--nav-scrollbar-color)'
-          }
+          "& .simplebar-scrollbar:before": {
+            background: "var(--nav-scrollbar-color)",
+          },
         }}
       >
-        <Stack sx={{ height: '100%' }}>
-          <Stack
-            alignItems="center"
-            direction="row"
-            spacing={2}
-            sx={{ p: 3 }}
-          >
+        <Stack sx={{ height: "100%" }}>
+          <Stack alignItems="center" direction="row" spacing={2} sx={{ p: 3 }}>
             <Box
               component={NextLink}
               href={paths.index}
               sx={{
-                borderColor: 'var(--nav-logo-border)',
+                borderColor: "var(--nav-logo-border)",
                 borderRadius: 1,
-                borderStyle: 'solid',
+                borderStyle: "solid",
                 borderWidth: 1,
-                display: 'flex',
+                display: "flex",
                 height: 40,
-                p: '4px',
-                width: 40
+                p: "4px",
+                width: 40,
               }}
             >
               <Logo />
@@ -162,7 +157,7 @@ export const MobileNav = (props) => {
             spacing={2}
             sx={{
               flexGrow: 1,
-              px: 2
+              px: 2,
             }}
           >
             {sections.map((section, index) => (
@@ -174,34 +169,6 @@ export const MobileNav = (props) => {
               />
             ))}
           </Stack>
-          <Box sx={{ p: 3 }}>
-            <Typography
-              color="neutral.400"
-              variant="subtitle1"
-            >
-              Need help?
-            </Typography>
-            <Typography
-              color="neutral.400"
-              sx={{ mb: 2 }}
-              variant="body2"
-            >
-              Please check our docs.
-            </Typography>
-            <Button
-              component={NextLink}
-              fullWidth
-              href={paths.docs.welcome}
-              startIcon={(
-                <SvgIcon>
-                  <File04Icon />
-                </SvgIcon>
-              )}
-              variant="contained"
-            >
-              Documentation
-            </Button>
-          </Box>
         </Stack>
       </Scrollbar>
     </Drawer>
