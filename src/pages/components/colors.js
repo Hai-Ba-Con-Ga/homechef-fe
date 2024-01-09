@@ -1,11 +1,10 @@
-import Head from "next/head";
 import { Box, Container, Stack } from "@mui/material";
+import Head from "next/head";
 import { usePageView } from "../../hooks/use-page-view";
 import { Layout as ComponentsLayout } from "../../layouts/components";
-import { Layout as MarketingLayout } from "../../layouts/marketing";
-import { Previewer } from "../../sections/components/previewer";
 import { Colors1 } from "../../sections/components/colors/colors-1";
 import { Colors2 } from "../../sections/components/colors/colors-2";
+import { Previewer } from "../../sections/components/previewer";
 
 const components = [
   {
@@ -48,9 +47,7 @@ const Page = () => {
 };
 
 Page.getLayout = (page) => (
-  <MarketingLayout>
-    <ComponentsLayout title="Colors">{page}</ComponentsLayout>
-  </MarketingLayout>
+  <ComponentsLayout title="Colors">{page}</ComponentsLayout>
 );
 
 export default Page;

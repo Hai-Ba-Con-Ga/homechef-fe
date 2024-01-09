@@ -56,7 +56,7 @@ export const ChatComposer = (props) => {
       return;
     }
 
-    router.push(paths.dashboard.chat + `?threadKey=${threadId}`);
+    router.push(paths.chat + `?threadKey=${threadId}`);
   }, [dispatch, router, recipients]);
 
   const canAddMessage = recipients.length > 0;

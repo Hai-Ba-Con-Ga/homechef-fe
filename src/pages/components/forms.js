@@ -1,10 +1,15 @@
-import Head from "next/head";
 import { Box, Container, Stack } from "@mui/material";
+import Head from "next/head";
 import { usePageView } from "../../hooks/use-page-view";
 import { Layout as ComponentsLayout } from "../../layouts/components";
-import { Layout as MarketingLayout } from "../../layouts/marketing";
-import { Previewer } from "../../sections/components/previewer";
 import { Form1 } from "../../sections/components/forms/form-1";
+import { Form10 } from "../../sections/components/forms/form-10";
+import { Form11 } from "../../sections/components/forms/form-11";
+import { Form12 } from "../../sections/components/forms/form-12";
+import { Form13 } from "../../sections/components/forms/form-13";
+import { Form14 } from "../../sections/components/forms/form-14";
+import { Form15 } from "../../sections/components/forms/form-15";
+import { Form16 } from "../../sections/components/forms/form-16";
 import { Form2 } from "../../sections/components/forms/form-2";
 import { Form3 } from "../../sections/components/forms/form-3";
 import { Form4 } from "../../sections/components/forms/form-4";
@@ -13,13 +18,7 @@ import { Form6 } from "../../sections/components/forms/form-6";
 import { Form7 } from "../../sections/components/forms/form-7";
 import { Form8 } from "../../sections/components/forms/form-8";
 import { Form9 } from "../../sections/components/forms/form-9";
-import { Form10 } from "../../sections/components/forms/form-10";
-import { Form11 } from "../../sections/components/forms/form-11";
-import { Form12 } from "../../sections/components/forms/form-12";
-import { Form13 } from "../../sections/components/forms/form-13";
-import { Form14 } from "../../sections/components/forms/form-14";
-import { Form15 } from "../../sections/components/forms/form-15";
-import { Form16 } from "../../sections/components/forms/form-16";
+import { Previewer } from "../../sections/components/previewer";
 
 const components = [
   {
@@ -118,9 +117,7 @@ const Page = () => {
 };
 
 Page.getLayout = (page) => (
-  <MarketingLayout>
-    <ComponentsLayout title="Forms">{page}</ComponentsLayout>
-  </MarketingLayout>
+  <ComponentsLayout title="Forms">{page}</ComponentsLayout>
 );
 
 export default Page;

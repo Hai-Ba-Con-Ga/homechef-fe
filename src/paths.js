@@ -101,6 +101,16 @@ export const paths = {
     index: "/chefs",
     details: "/chefs/:chefId",
   },
+  vouchers: {
+    index: "/vouchers",
+    details: "/vouchers/:voucherId",
+    create: "/vouchers/create",
+  },
+  orders: {
+    index: "/orders",
+    details: "/orders/:orderId",
+  },
+  chat: "/chat",
   components: {
     index: "/components",
     dataDisplay: {

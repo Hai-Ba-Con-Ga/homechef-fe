@@ -1,14 +1,13 @@
-import Head from "next/head";
 import { Box, Container, Stack } from "@mui/material";
+import Head from "next/head";
 import { usePageView } from "../../hooks/use-page-view";
 import { Layout as ComponentsLayout } from "../../layouts/components";
-import { Layout as MarketingLayout } from "../../layouts/marketing";
-import { Previewer } from "../../sections/components/previewer";
 import { Inputs1 } from "../../sections/components/inputs/inputs-1";
 import { Inputs2 } from "../../sections/components/inputs/inputs-2";
 import { Inputs3 } from "../../sections/components/inputs/inputs-3";
 import { Inputs4 } from "../../sections/components/inputs/inputs-4";
 import { Inputs5 } from "../../sections/components/inputs/inputs-5";
+import { Previewer } from "../../sections/components/previewer";
 
 const components = [
   {
@@ -63,9 +62,7 @@ const Page = () => {
 };
 
 Page.getLayout = (page) => (
-  <MarketingLayout>
-    <ComponentsLayout title="Inputs">{page}</ComponentsLayout>
-  </MarketingLayout>
+  <ComponentsLayout title="Inputs">{page}</ComponentsLayout>
 );
 
 export default Page;

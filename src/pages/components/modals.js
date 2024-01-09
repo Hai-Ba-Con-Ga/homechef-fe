@@ -2,7 +2,6 @@ import Head from "next/head";
 import { Box, Container, Stack } from "@mui/material";
 import { usePageView } from "../../hooks/use-page-view";
 import { Layout as ComponentsLayout } from "../../layouts/components";
-import { Layout as MarketingLayout } from "../../layouts/marketing";
 import { Previewer } from "../../sections/components/previewer";
 import { Modal1 } from "../../sections/components/modals/modal-1";
 import { Modal2 } from "../../sections/components/modals/modal-2";
@@ -88,9 +87,7 @@ export const Page = () => {
 };
 
 Page.getLayout = (page) => (
-  <MarketingLayout>
     <ComponentsLayout title="Modals">{page}</ComponentsLayout>
-  </MarketingLayout>
 );
 
 export default Page;

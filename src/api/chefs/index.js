@@ -59,4 +59,4 @@ class ChefsApi {
   }
 }
 
-export const ChefsApi = new ChefsApi();
+export const chefsApi = new ChefsApi();

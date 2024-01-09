@@ -1,8 +1,7 @@
-import Head from "next/head";
 import { Box, Container, Stack } from "@mui/material";
+import Head from "next/head";
 import { usePageView } from "../../../hooks/use-page-view";
 import { Layout as ComponentsLayout } from "../../../layouts/components";
-import { Layout as MarketingLayout } from "../../../layouts/marketing";
 import { Previewer } from "../../../sections/components/previewer";
 import { QuickStats1 } from "../../../sections/components/quick-stats/quick-stats-1";
 import { QuickStats2 } from "../../../sections/components/quick-stats/quick-stats-2";
@@ -83,9 +82,7 @@ const Page = () => {
 };
 
 Page.getLayout = (page) => (
-  <MarketingLayout>
     <ComponentsLayout title="Quick Stats">{page}</ComponentsLayout>
-  </MarketingLayout>
 );
 
 export default Page;

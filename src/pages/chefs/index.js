@@ -1,4 +1,3 @@
-import { productsApi } from "@/api/products";
 import {
   Box,
   Button,

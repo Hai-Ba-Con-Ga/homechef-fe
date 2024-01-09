@@ -49,4 +49,5 @@ export const en = {
   [tokens.nav.socialMedia]: "Social Media",
   [tokens.nav.verifyCode]: "Verify Code",
   [tokens.nav.chef]: "Chef",
+  [tokens.nav.vouchers]: "Vouchers",
 };

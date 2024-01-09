@@ -52,38 +52,17 @@ export const getSections = (t) => [
             <ShoppingCart01Icon />
           </SvgIcon>
         ),
-        path: paths.dashboard.orders.index,
-        items: [
-          {
-            title: t(tokens.nav.list),
-            path: paths.dashboard.orders.index,
-          },
-          {
-            title: t(tokens.nav.details),
-            path: paths.dashboard.orders.details,
-          },
-        ],
+        path: paths.orders.index,
       },
       {
-        title: t(tokens.nav.invoiceList),
-        path: paths.dashboard.invoices.index,
+        title: t(tokens.nav.vouchers),
+        path: paths.vouchers.index,
         icon: (
           <SvgIcon fontSize="small">
             <ReceiptCheckIcon />
           </SvgIcon>
         ),
-        items: [
-          {
-            title: t(tokens.nav.list),
-            path: paths.dashboard.invoices.index,
-          },
-          {
-            title: t(tokens.nav.details),
-            path: paths.dashboard.invoices.details,
-          },
-        ],
       },
-
       {
         title: t(tokens.nav.jobList),
         path: paths.dashboard.jobs.index,
@@ -152,7 +131,7 @@ export const getSections = (t) => [
 
       {
         title: t(tokens.nav.chat),
-        path: paths.dashboard.chat,
+        path: paths.chat,
         icon: (
           <SvgIcon fontSize="small">
             <MessageChatSquareIcon />

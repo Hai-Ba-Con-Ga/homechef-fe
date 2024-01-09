@@ -51,6 +51,7 @@ export const tokens = {
     socialMedia: 'nav.socialMedia',
     verifyCode: 'nav.verifyCode',
     chef: 'nav.chef',
+    vouchers: 'nav.vouchers',
     
   }
 };

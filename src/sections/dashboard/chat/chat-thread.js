@@ -20,18 +20,19 @@ const useParticipants = (threadKey) => {
     try {
       const participants = await chatApi.getParticipants({ threadKey });
       setParticipants(participants);
-
     } catch (err) {
       console.error(err);
-      router.push(paths.dashboard.chat);
+      router.push(paths.chat);
     }
   }, [router, threadKey]);
 
-  useEffect(() => {
+  useEffect(
+    () => {
       getParticipants();
     },
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    [threadKey]);
+    [threadKey]
+  );
 
   return participants;
 };
@@ -53,36 +54,44 @@ const useThread = (threadKey) => {
     let threadId;
 
     try {
-      threadId = await dispatch(thunks.getThread({
-        threadKey
-      }));
+      threadId = await dispatch(
+        thunks.getThread({
+          threadKey,
+        })
+      );
     } catch (err) {
       console.error(err);
-      router.push(paths.dashboard.chat);
+      router.push(paths.chat);
       return;
     }
 
     // Set the active thread
     // If the thread exists, then is sets it as active, otherwise it sets is as undefined
 
-    dispatch(thunks.setCurrentThread({
-      threadId
-    }));
+    dispatch(
+      thunks.setCurrentThread({
+        threadId,
+      })
+    );
 
     // Mark the thread as seen only if it exists
 
     if (threadId) {
-      dispatch(thunks.markThreadAsSeen({
-        threadId
-      }));
+      dispatch(
+        thunks.markThreadAsSeen({
+          threadId,
+        })
+      );
     }
   }, [router, dispatch, threadKey]);
 
-  useEffect(() => {
+  useEffect(
+    () => {
       getThread();
     },
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    [threadKey]);
+    [threadKey]
+  );
 
   return thread;
 };

@@ -1,19 +1,18 @@
-import Head from "next/head";
-import NextLink from "next/link";
-import ArrowDownIcon from "@untitled-ui/icons-react/build/esm/ArrowDown";
 import {
   Box,
   Card,
   Container,
   Divider,
+  Unstable_Grid2 as Grid,
   Stack,
   SvgIcon,
   Typography,
-  Unstable_Grid2 as Grid,
 } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
+import ArrowDownIcon from "@untitled-ui/icons-react/build/esm/ArrowDown";
+import Head from "next/head";
+import NextLink from "next/link";
 import { usePageView } from "../../hooks/use-page-view";
-import { Layout as MarketingLayout } from "../../layouts/marketing";
 import { paths } from "../../paths";
 
 const getSections = (paletteMode) => [
@@ -234,6 +233,6 @@ const Page = () => {
   );
 };
 
-Page.getLayout = (page) => <MarketingLayout>{page}</MarketingLayout>;
+Page.getLayout = (page) =>{page};
 
 export default Page;

@@ -1,12 +1,11 @@
-import Head from "next/head";
 import { Box, Container, Stack } from "@mui/material";
+import Head from "next/head";
 import { usePageView } from "../../hooks/use-page-view";
 import { Layout as ComponentsLayout } from "../../layouts/components";
-import { Layout as MarketingLayout } from "../../layouts/marketing";
-import { Previewer } from "../../sections/components/previewer";
 import { Buttons1 } from "../../sections/components/buttons/buttons-1";
 import { Buttons2 } from "../../sections/components/buttons/buttons-2";
 import { Buttons3 } from "../../sections/components/buttons/buttons-3";
+import { Previewer } from "../../sections/components/previewer";
 
 const components = [
   {
@@ -53,9 +52,7 @@ const Page = () => {
 };
 
 Page.getLayout = (page) => (
-  <MarketingLayout>
-    <ComponentsLayout title="Buttons">{page}</ComponentsLayout>
-  </MarketingLayout>
+  <ComponentsLayout title="Buttons">{page}</ComponentsLayout>
 );
 
 export default Page;

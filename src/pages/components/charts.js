@@ -1,10 +1,12 @@
-import Head from "next/head";
 import { Box, Container, Stack } from "@mui/material";
+import Head from "next/head";
 import { usePageView } from "../../hooks/use-page-view";
 import { Layout as ComponentsLayout } from "../../layouts/components";
-import { Layout as MarketingLayout } from "../../layouts/marketing";
-import { Previewer } from "../../sections/components/previewer";
 import { Chart1 } from "../../sections/components/charts/chart-1";
+import { Chart10 } from "../../sections/components/charts/chart-10";
+import { Chart11 } from "../../sections/components/charts/chart-11";
+import { Chart12 } from "../../sections/components/charts/chart-12";
+import { Chart13 } from "../../sections/components/charts/chart-13";
 import { Chart2 } from "../../sections/components/charts/chart-2";
 import { Chart3 } from "../../sections/components/charts/chart-3";
 import { Chart4 } from "../../sections/components/charts/chart-4";
@@ -13,10 +15,7 @@ import { Chart6 } from "../../sections/components/charts/chart-6";
 import { Chart7 } from "../../sections/components/charts/chart-7";
 import { Chart8 } from "../../sections/components/charts/chart-8";
 import { Chart9 } from "../../sections/components/charts/chart-9";
-import { Chart10 } from "../../sections/components/charts/chart-10";
-import { Chart11 } from "../../sections/components/charts/chart-11";
-import { Chart12 } from "../../sections/components/charts/chart-12";
-import { Chart13 } from "../../sections/components/charts/chart-13";
+import { Previewer } from "../../sections/components/previewer";
 
 const components = [
   {
@@ -103,9 +102,7 @@ const Page = () => {
 };
 
 Page.getLayout = (page) => (
-  <MarketingLayout>
-    <ComponentsLayout title="Charts">{page}</ComponentsLayout>
-  </MarketingLayout>
+  <ComponentsLayout title="Charts">{page}</ComponentsLayout>
 );
 
 export default Page;

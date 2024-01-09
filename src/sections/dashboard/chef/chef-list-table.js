@@ -1,3 +1,4 @@
+import { getRandomInt } from "@/utils/get-random-int";
 import {
   Box,
   Button,
@@ -5,12 +6,10 @@ import {
   Divider,
   Grid,
   IconButton,
-  InputAdornment,
   LinearProgress,
   MenuItem,
   Stack,
   SvgIcon,
-  Switch,
   Table,
   TableBody,
   TableCell,
@@ -18,7 +17,7 @@ import {
   TablePagination,
   TableRow,
   TextField,
-  Typography,
+  Typography
 } from "@mui/material";
 import ChevronDownIcon from "@untitled-ui/icons-react/build/esm/ChevronDown";
 import ChevronRightIcon from "@untitled-ui/icons-react/build/esm/ChevronRight";
@@ -148,10 +147,10 @@ export const ChefListTable = (props) => {
           <TableHead>
             <TableRow>
               <TableCell />
-              <TableCell width="25%">Name</TableCell>
-              <TableCell width="25%">Stock</TableCell>
-              <TableCell>Price</TableCell>
-              <TableCell>sku</TableCell>
+              <TableCell width="25%">Full Name</TableCell>
+              <TableCell width="25%">Rating</TableCell>
+              <TableCell>Wallet</TableCell>
+              <TableCell>Total Orders</TableCell>
               <TableCell>Status</TableCell>
               <TableCell align="right">Actions</TableCell>
             </TableRow>
@@ -159,8 +158,8 @@ export const ChefListTable = (props) => {
           <TableBody>
             {chefs.map((chef) => {
               const isCurrent = chef.id === currentChef;
-              const price = numeral(chef.price).format(
-                `${chef.currency}0,0.00`
+              const wallet = numeral(chef.wallet).format(
+                `${chef.wallet}0,0.00`
               );
               const quantityColor = chef.quantity >= 10 ? "success" : "error";
               const statusColor =
@@ -205,12 +204,12 @@ export const ChefListTable = (props) => {
                           display: "flex",
                         }}
                       >
-                        {chef.image ? (
+                        {chef.avatarUrl ? (
                           <Box
                             sx={{
                               alignItems: "center",
                               backgroundColor: "neutral.50",
-                              backgroundImage: `url(${chef.image})`,
+                              backgroundImage: `url(${chef.avatarUrl})`,
                               backgroundPosition: "center",
                               backgroundSize: "cover",
                               borderRadius: 1,
@@ -245,17 +244,14 @@ export const ChefListTable = (props) => {
                           }}
                         >
                           <Typography variant="subtitle2">
-                            {chef.name}
-                          </Typography>
-                          <Typography color="text.secondary" variant="body2">
-                            in {chef.category}
+                            {chef.fullName}
                           </Typography>
                         </Box>
                       </Box>
                     </TableCell>
                     <TableCell width="25%">
                       <LinearProgress
-                        value={chef.quantity}
+                        value={chef.rating}
                         variant="determinate"
                         color={quantityColor}
                         sx={{
@@ -264,12 +260,13 @@ export const ChefListTable = (props) => {
                         }}
                       />
                       <Typography color="text.secondary" variant="body2">
-                        {chef.quantity} in stock
-                        {hasManyVariants && ` in ${chef.variants} variants`}
+                        {chef.rating ?? getRandomInt(3, 5)} stars
                       </Typography>
                     </TableCell>
-                    <TableCell>{price}</TableCell>
-                    <TableCell>{chef.sku}</TableCell>
+                    <TableCell>{wallet}</TableCell>
+                    <TableCell>
+                      {chef.totalOrders ?? getRandomInt(10, 100)}
+                    </TableCell>
                     <TableCell>
                       <SeverityPill color={statusColor}>
                         {chef.status}
@@ -311,24 +308,24 @@ export const ChefListTable = (props) => {
                               <Grid container spacing={3}>
                                 <Grid item md={6} xs={12}>
                                   <TextField
-                                    defaultValue={chef.name}
+                                    defaultValue={chef.fullName}
                                     fullWidth
-                                    label="Chef name"
+                                    label="Chef Name"
                                     name="name"
                                   />
                                 </Grid>
                                 <Grid item md={6} xs={12}>
                                   <TextField
-                                    defaultValue={chef.sku}
+                                    defaultValue={chef.totalOrders}
                                     disabled
                                     fullWidth
-                                    label="SKU"
-                                    name="sku"
+                                    label="Total Orders"
+                                    name="total-orders"
                                   />
                                 </Grid>
                                 <Grid item md={6} xs={12}>
                                   <TextField
-                                    defaultValue={chef.category}
+                                    defaultValue={chef.area}
                                     fullWidth
                                     label="Area"
                                     select
@@ -348,63 +345,9 @@ export const ChefListTable = (props) => {
                                     defaultValue={chef.id}
                                     disabled
                                     fullWidth
-                                    label="Barcode"
-                                    name="barcode"
+                                    label="Id"
+                                    name="id"
                                   />
-                                </Grid>
-                              </Grid>
-                            </Grid>
-                            <Grid item md={6} xs={12}>
-                              <Typography variant="h6">
-                                Pricing and stocks
-                              </Typography>
-                              <Divider sx={{ my: 2 }} />
-                              <Grid container spacing={3}>
-                                <Grid item md={6} xs={12}>
-                                  <TextField
-                                    defaultValue={chef.price}
-                                    fullWidth
-                                    label="Old price"
-                                    name="old-price"
-                                    InputProps={{
-                                      startAdornment: (
-                                        <InputAdornment position="start">
-                                          {chef.currency}
-                                        </InputAdornment>
-                                      ),
-                                    }}
-                                    type="number"
-                                  />
-                                </Grid>
-                                <Grid item md={6} xs={12}>
-                                  <TextField
-                                    defaultValue={chef.price}
-                                    fullWidth
-                                    label="New price"
-                                    name="new-price"
-                                    InputProps={{
-                                      startAdornment: (
-                                        <InputAdornment position="start">
-                                          $
-                                        </InputAdornment>
-                                      ),
-                                    }}
-                                    type="number"
-                                  />
-                                </Grid>
-                                <Grid
-                                  item
-                                  md={6}
-                                  xs={12}
-                                  sx={{
-                                    alignItems: "center",
-                                    display: "flex",
-                                  }}
-                                >
-                                  <Switch />
-                                  <Typography variant="subtitle2">
-                                    Keep selling when stock is empty
-                                  </Typography>
                                 </Grid>
                               </Grid>
                             </Grid>
