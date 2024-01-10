@@ -1,11 +1,4 @@
-import { useCallback } from "react";
-import Head from "next/head";
-import { useRouter, useSearchParams } from "next/navigation";
-import NextLink from "next/link";
-import * as Yup from "yup";
-import { useFormik } from "formik";
 import {
-  Alert,
   Box,
   Button,
   Card,
@@ -16,8 +9,14 @@ import {
   Link,
   Stack,
   TextField,
-  Typography,
+  Typography
 } from "@mui/material";
+import { useFormik } from "formik";
+import Head from "next/head";
+import NextLink from "next/link";
+import { useRouter, useSearchParams } from "next/navigation";
+import { useCallback } from "react";
+import * as Yup from "yup";
 import { GuestGuard } from "../../guards/guest-guard";
 import { IssuerGuard } from "../../guards/issuer-guard";
 import { useAuth } from "../../hooks/use-auth";

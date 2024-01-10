@@ -3,11 +3,13 @@ import { applySort } from '../../utils/apply-sort';
 import { deepCopy } from '../../utils/deep-copy';
 import { customer, customers, emails, invoices, logs } from './data';
 import { get } from "../../utils/caller";
+import { tokenConfig } from '@/config';
 class CustomersApi {
   async getCustomers(request = {}) {
+    const token = 'Bearer ' + tokenConfig.token;
     const { filters, page, rowsPerPage, sortBy, sortDir } = request;
     const endpoint = "/user/customer";
-    let data = (await get(endpoint)).data;
+    let data = (await get(endpoint, {}, {Authorization: token})).data;
 
     let count = data.length;
     if (count === 0) {
@@ -76,7 +78,8 @@ class CustomersApi {
   async getCustomer(request) {
     const { customerId } = request;
     const endpoint = `/user/${customerId}`;
-    let data = (await get(endpoint)).data;
+    const token = 'Bearer ' + tokenConfig.token;
+    let data = (await get(endpoint, {}, {Authorization: token})).data;
 
     if (typeof data === "undefined") {
       data = deepCopy(customer);

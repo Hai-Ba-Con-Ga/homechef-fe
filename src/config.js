@@ -34,3 +34,7 @@ export const mapboxConfig = {
 export const apiConfig = {
   baseURL: process.env.NEXT_PUBLIC_API_BASE_URL,
 };
+
+export const tokenConfig = {
+  token: process.env.NEXT_PUBLIC_ACCESS_TOKEN,
+};
