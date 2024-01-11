@@ -79,10 +79,6 @@ const Page = () => {
                         2385, 5912, 8323,
                       ],
                     },
-                    {
-                      name: "Up/Cross-Selling",
-                      data: [35, 41, 62, 42, 13, 18, 29, 37, 36, 51, 32, 35],
-                    },
                   ]}
                 />
                 <EcommerceSalesByCountry
@@ -90,27 +86,27 @@ const Page = () => {
                     {
                       id: "us",
                       amount: 60,
-                      country: "United States",
+                      country: "District 1",
                     },
                     {
                       id: "es",
                       amount: 20,
-                      country: "Spain",
+                      country: "District 2",
                     },
                     {
                       id: "uk",
                       amount: 10,
-                      country: "United Kingdom",
+                      country: "Binh Thanh",
                     },
                     {
                       id: "de",
                       amount: 5,
-                      country: "Germany",
+                      country: "Thu Duc",
                     },
                     {
                       id: "ca",
                       amount: 5,
-                      country: "Canada",
+                      country: "District 9",
                     },
                   ]}
                 />
@@ -127,37 +123,33 @@ const Page = () => {
                   products={[
                     {
                       id: "5eff2512c6f8737d08325676",
-                      category: "Accessories",
-                      image: "/assets/products/product-1.png",
-                      name: "Healthcare Erbology",
-                      sales: 13153,
+                      image: "/assets/avatars/avatar-carson-darrin.png",
+                      name: "Cleveland",
+                      sales: 22,
                     },
                     {
-                      id: "5eff2516247f9a6fcca9f151",
-                      category: "Accessories",
-                      image: "/assets/products/product-2.png",
-                      name: "Makeup Lancome Rouge",
-                      sales: 10300,
+                      id: "5e887b7602bdbc4dbb234b27",
+                      image: "/assets/avatars/avatar-fran-perez.png",
+                      name: "Atlanta",
+                      sales: 18,
                     },
                     {
-                      id: "5eff251a3bb9ab7290640f18",
-                      category: "Accessories",
-                      name: "Lounge Puff Fabric Slipper",
-                      sales: 5300,
+                      id: "5e86809283e28b96d2d38537",
+                      image: "/assets/avatars/avatar-anika-visser.png",
+                      name: "Jie Yan Song",
+                      sales: 15,
                     },
                     {
                       id: "5eff251e297fd17f0dc18a8b",
-                      category: "Accessories",
-                      image: "/assets/products/product-4.png",
-                      name: "Skincare Necessaire",
-                      sales: 1203,
+                      image: "/assets/avatars/avatar-miron-vitold.png",
+                      name: "Necessaire",
+                      sales: 14,
                     },
                     {
                       id: "5eff2524ef813f061b3ea39f",
-                      category: "Accessories",
-                      image: "/assets/products/product-5.png",
-                      name: "Skincare Soja CO",
-                      sales: 254,
+                      image: "/assets/avatars/avatar-anika-visser.png",
+                      name: "Soja CO",
+                      sales: 10,
                     },
                   ]}
                 />

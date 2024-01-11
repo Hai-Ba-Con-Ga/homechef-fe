@@ -1,7 +1,3 @@
-import PropTypes from 'prop-types';
-import numeral from 'numeral';
-import ArrowRightIcon from '@untitled-ui/icons-react/build/esm/ArrowRight';
-import Image01Icon from '@untitled-ui/icons-react/build/esm/Image01';
 import {
   Box,
   Button,
@@ -16,6 +12,10 @@ import {
   TableRow,
   Typography
 } from '@mui/material';
+import ArrowRightIcon from '@untitled-ui/icons-react/build/esm/ArrowRight';
+import Image01Icon from '@untitled-ui/icons-react/build/esm/Image01';
+import numeral from 'numeral';
+import PropTypes from 'prop-types';
 import { MoreMenu } from '../../../components/more-menu';
 import { Scrollbar } from '../../../components/scrollbar';
 
@@ -26,7 +26,7 @@ export const EcommerceProducts = (props) => {
     <Card>
       <CardHeader
         action={<MoreMenu />}
-        title="Top Selling Products"
+        title="Top Chef of the Month"
       />
       <Scrollbar>
         <Table sx={{ minWidth: 300 }}>

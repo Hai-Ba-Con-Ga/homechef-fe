@@ -1,8 +1,3 @@
-import { useCallback, useEffect, useState } from "react";
-import Head from "next/head";
-import Download01Icon from "@untitled-ui/icons-react/build/esm/Download01";
-import PlusIcon from "@untitled-ui/icons-react/build/esm/Plus";
-import Upload01Icon from "@untitled-ui/icons-react/build/esm/Upload01";
 import {
   Box,
   Button,
@@ -12,6 +7,11 @@ import {
   SvgIcon,
   Typography,
 } from "@mui/material";
+import Download01Icon from "@untitled-ui/icons-react/build/esm/Download01";
+import PlusIcon from "@untitled-ui/icons-react/build/esm/Plus";
+import Upload01Icon from "@untitled-ui/icons-react/build/esm/Upload01";
+import Head from "next/head";
+import { useCallback, useEffect, useState } from "react";
 import { customersApi } from "../../api/customers";
 import { useMounted } from "../../hooks/use-mounted";
 import { usePageView } from "../../hooks/use-page-view";

@@ -64,25 +64,6 @@ export const getSections = (t) => [
         ),
       },
       {
-        title: t(tokens.nav.socialMedia),
-        path: paths.dashboard.social.index,
-        icon: (
-          <SvgIcon fontSize="small">
-            <Share07Icon />
-          </SvgIcon>
-        ),
-        items: [
-          {
-            title: t(tokens.nav.profile),
-            path: paths.dashboard.social.profile,
-          },
-          {
-            title: t(tokens.nav.feed),
-            path: paths.dashboard.social.feed,
-          },
-        ],
-      },
-      {
         title: t(tokens.nav.blog),
         path: paths.dashboard.blog.index,
         icon: (
