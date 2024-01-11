@@ -90,12 +90,12 @@ const areaOptions = [
 
 const statusOptions = [
   {
-    label: "Published",
-    value: "published",
+    label: "Active",
+    value: "active",
   },
   {
-    label: "Draft",
-    value: "draft",
+    label: "Inactive",
+    value: "inactive",
   },
 ];
 

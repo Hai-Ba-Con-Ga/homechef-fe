@@ -19,14 +19,16 @@ import { Layout as DashboardLayout } from "../../../layouts/dashboard";
 import { paths } from "../../../paths";
 import { CustomerEditForm } from "../../../sections/dashboard/customer/customer-edit-form";
 import { getInitials } from "../../../utils/get-initials";
-
+import { useRouter } from "next/router";
 const useCustomer = () => {
   const isMounted = useMounted();
   const [customer, setCustomer] = useState(null);
+  const router = useRouter();
+  const { customerId } = router.query;
 
   const getCustomer = useCallback(async () => {
     try {
-      const response = await customersApi.getCustomer();
+      const response = await customersApi.getCustomer({ customerId });
 
       if (isMounted()) {
         setCustomer(response);
@@ -59,7 +61,7 @@ const Page = () => {
   return (
     <>
       <Head>
-        <title>Dashboard: Customer Edit | Devias Kit PRO</title>
+        <title>Customer Edit | HomeChef</title>
       </Head>
       <Box
         component="main"
@@ -99,13 +101,13 @@ const Page = () => {
               >
                 <Stack alignItems="center" direction="row" spacing={2}>
                   <Avatar
-                    src={customer.avatar}
+                    src={customer.avatarUrl}
                     sx={{
                       height: 64,
                       width: 64,
                     }}
                   >
-                    {getInitials(customer.name)}
+                    {getInitials(customer.fullName)}
                   </Avatar>
                   <Stack spacing={1}>
                     <Typography variant="h4">{customer.email}</Typography>

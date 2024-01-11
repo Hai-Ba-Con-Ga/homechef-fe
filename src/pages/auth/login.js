@@ -31,7 +31,7 @@ const useParams = () => {
   const returnTo = searchParams.get("returnTo") || undefined;
 
   return {
-    returnTo,
+    returnTo, 
   };
 };
 

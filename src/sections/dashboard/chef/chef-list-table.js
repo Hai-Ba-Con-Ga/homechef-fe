@@ -17,7 +17,7 @@ import {
   TablePagination,
   TableRow,
   TextField,
-  Typography
+  Typography,
 } from "@mui/material";
 import ChevronDownIcon from "@untitled-ui/icons-react/build/esm/ChevronDown";
 import ChevronRightIcon from "@untitled-ui/icons-react/build/esm/ChevronRight";
@@ -161,7 +161,7 @@ export const ChefListTable = (props) => {
               const wallet = numeral(chef.wallet).format(
                 `${chef.wallet}0,0.00`
               );
-              const quantityColor = chef.quantity >= 10 ? "success" : "error";
+              const quantityColor = chef.rating >= 2 ? "success" : "error";
               const statusColor =
                 chef.status === "published" ? "success" : "info";
               const hasManyVariants = chef.variants > 1;

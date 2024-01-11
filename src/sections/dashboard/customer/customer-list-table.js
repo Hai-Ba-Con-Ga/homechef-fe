@@ -197,7 +197,10 @@ export const CustomerListTable = (props) => {
                   <TableCell align="right">
                     <IconButton
                       component={NextLink}
-                      href={paths.customers.edit}
+                      href={paths.customers.edit.replace(
+                        ":customerId",
+                        customer.id
+                      )}
                     >
                       <SvgIcon>
                         <Edit02Icon />
@@ -205,7 +208,10 @@ export const CustomerListTable = (props) => {
                     </IconButton>
                     <IconButton
                       component={NextLink}
-                      href={paths.customers.details}
+                      href={paths.customers.details.replace(
+                        ":customerId",
+                        customer.id
+                      )}
                     >
                       <SvgIcon>
                         <ArrowRightIcon />

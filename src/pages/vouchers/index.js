@@ -50,6 +50,7 @@ const useVouchers = (search) => {
   const getVouchers = useCallback(async () => {
     try {
       const response = await vouchersApi.getVouchers(search);
+      console.log(response);
       if (isMounted()) {
         setState({
           vouchers: response.data,

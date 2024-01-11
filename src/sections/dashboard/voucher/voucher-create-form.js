@@ -58,7 +58,6 @@ export const VoucherCreateForm = () => {
   const handleComplete = useCallback(() => {
     setComplete(true);
   }, []);
-
   const steps = useMemo(() => {
     return [
       {

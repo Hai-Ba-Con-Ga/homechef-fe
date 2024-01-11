@@ -1,12 +1,21 @@
 import { applyPagination } from "../../utils/apply-pagination";
-
+import { chefs } from "./data";
+import { get } from "../../utils/caller";
+import { tokenConfig } from "@/config";
 class ChefsApi {
   async getChefs(request = {}) {
+    const token = "Bearer " + tokenConfig.token;
     const { filters, page, rowsPerPage } = request;
     const endpoint = "/user/chef";
-    let data = (await get(endpoint)).data;
-    let count = data.length;
+    // let data = (await get(endpoint, {}, { Authorization: token })).data;
+    // let count = data.length;
+    // if (count === 0) {
+    //   data = chefs;
+    //   count = data.length;
+    // }
 
+    let data = chefs;
+    let count = chefs.length;
     if (typeof filters !== "undefined") {
       data = data.filter((chef) => {
         if (typeof filters.name !== "undefined" && filters.name !== "") {

@@ -39,14 +39,13 @@ const groupVouchers = (vouchers) => {
 
 const statusColorsMap = {
   inactive: "error",
-  active: "success"
+  active: "success",
 };
 
 const VoucherRow = (props) => {
   const { voucher, ...other } = props;
-  const status = voucher.isActive ? "active" : "inactive";
 
-  const statusColor = statusColorsMap[status];
+  const statusColor = statusColorsMap[voucher.status];
   const startDate =
     voucher.startDate && format(voucher.startDate, "dd/MM/yyyy");
   const endDate = voucher.endDate && format(voucher.endDate, "dd/MM/yyyy");
@@ -88,9 +87,7 @@ const VoucherRow = (props) => {
         </Stack>
       </TableCell>
       <TableCell>
-        <Typography variant="subtitle2">
-          {voucher.quantity}
-        </Typography>
+        <Typography variant="subtitle2">{voucher.quantity}</Typography>
       </TableCell>
       <TableCell>
         <Typography variant="subtitle2">Start Date</Typography>
@@ -105,7 +102,7 @@ const VoucherRow = (props) => {
         </Typography>
       </TableCell>
       <TableCell align="right">
-        <SeverityPill color={statusColor}>{status}</SeverityPill>
+        <SeverityPill color={statusColor}>{voucher.status}</SeverityPill>
       </TableCell>
       <TableCell align="right">
         <IconButton

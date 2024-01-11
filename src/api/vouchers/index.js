@@ -1,8 +1,20 @@
+import { tokenConfig } from "@/config";
+import { get } from "../../utils/caller";
+import { vouchers } from "./data";
+import { applyPagination } from "../../utils/apply-pagination";
+import { applySort } from "../../utils/apply-sort";
+
 class VouchersApi {
   async getVouchers(request = {}) {
-    const { filters, sortBy, sortDir, page, rowsPerPage } = request;
-    const endpoint = `/vouchers`;
-    let data = (await get(endpoint)).data;
+    const token = "Bearer " + tokenConfig.token;
+    const { filters, page, rowsPerPage, sortBy, sortDir } = request;
+    const endpoint = "/voucher";
+    // let data = (await get(endpoint, {}, { Authorization: token })).data;
+
+    // if (data.length === 0) {
+    //   data = vouchers;
+    // }
+    let data = vouchers;
 
     let count = data.length;
     if (typeof filters !== "undefined") {

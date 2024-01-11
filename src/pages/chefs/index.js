@@ -1,3 +1,4 @@
+import { chefsApi } from "@/api/chefs";
 import {
   Box,
   Button,
@@ -45,8 +46,8 @@ const useChefs = (search) => {
 
   const getChefs = useCallback(async () => {
     try {
-      const response = await productsApi.getProducts(search);
-
+      const response = await chefsApi.getChefs(search);
+      console.log(response);
       if (isMounted()) {
         setState({
           chefs: response.data,

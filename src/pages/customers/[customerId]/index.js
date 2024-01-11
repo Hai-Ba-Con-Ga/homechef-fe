@@ -1,9 +1,3 @@
-import { useCallback, useEffect, useState } from "react";
-import NextLink from "next/link";
-import Head from "next/head";
-import ArrowLeftIcon from "@untitled-ui/icons-react/build/esm/ArrowLeft";
-import ChevronDownIcon from "@untitled-ui/icons-react/build/esm/ChevronDown";
-import Edit02Icon from "@untitled-ui/icons-react/build/esm/Edit02";
 import {
   Avatar,
   Box,
@@ -11,14 +5,21 @@ import {
   Chip,
   Container,
   Divider,
+  Unstable_Grid2 as Grid,
   Link,
   Stack,
   SvgIcon,
   Tab,
   Tabs,
   Typography,
-  Unstable_Grid2 as Grid,
 } from "@mui/material";
+import ArrowLeftIcon from "@untitled-ui/icons-react/build/esm/ArrowLeft";
+import ChevronDownIcon from "@untitled-ui/icons-react/build/esm/ChevronDown";
+import Edit02Icon from "@untitled-ui/icons-react/build/esm/Edit02";
+import Head from "next/head";
+import NextLink from "next/link";
+import { useRouter } from "next/router";
+import { useCallback, useEffect, useState } from "react";
 import { customersApi } from "../../../api/customers";
 import { useMounted } from "../../../hooks/use-mounted";
 import { usePageView } from "../../../hooks/use-page-view";
@@ -28,10 +29,9 @@ import { CustomerBasicDetails } from "../../../sections/dashboard/customer/custo
 import { CustomerDataManagement } from "../../../sections/dashboard/customer/customer-data-management";
 import { CustomerEmailsSummary } from "../../../sections/dashboard/customer/customer-emails-summary";
 import { CustomerInvoices } from "../../../sections/dashboard/customer/customer-invoices";
-import { CustomerPayment } from "../../../sections/dashboard/customer/customer-payment";
 import { CustomerLogs } from "../../../sections/dashboard/customer/customer-logs";
+import { CustomerPayment } from "../../../sections/dashboard/customer/customer-payment";
 import { getInitials } from "../../../utils/get-initials";
-import { useRouter } from "next/router";
 const tabs = [
   { label: "Details", value: "details" },
   { label: "Invoices", value: "invoices" },
@@ -202,7 +202,10 @@ const Page = () => {
                         <Edit02Icon />
                       </SvgIcon>
                     }
-                    href={paths.customers.edit}
+                    href={paths.customers.edit.replace(
+                      ":customerId",
+                      customer.id
+                    )}
                   >
                     Edit
                   </Button>

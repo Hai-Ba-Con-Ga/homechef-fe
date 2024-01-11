@@ -64,29 +64,6 @@ export const getSections = (t) => [
         ),
       },
       {
-        title: t(tokens.nav.jobList),
-        path: paths.dashboard.jobs.index,
-        icon: (
-          <SvgIcon fontSize="small">
-            <Building04Icon />
-          </SvgIcon>
-        ),
-        items: [
-          {
-            title: t(tokens.nav.browse),
-            path: paths.dashboard.jobs.index,
-          },
-          {
-            title: t(tokens.nav.details),
-            path: paths.dashboard.jobs.companies.details,
-          },
-          {
-            title: t(tokens.nav.create),
-            path: paths.dashboard.jobs.create,
-          },
-        ],
-      },
-      {
         title: t(tokens.nav.socialMedia),
         path: paths.dashboard.social.index,
         icon: (
