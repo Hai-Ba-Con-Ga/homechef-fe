@@ -256,7 +256,7 @@ const Page = () => {
                     <Stack spacing={4}>
                       <CustomerPayment />
                       <CustomerEmailsSummary />
-                      <CustomerDataManagement />
+                      <CustomerDataManagement customer={customer} />
                     </Stack>
                   </Grid>
                 </Grid>

@@ -89,6 +89,7 @@ export const CustomerEditForm = (props) => {
                 onChange={formik.handleChange}
                 required
                 value={formik.values.email}
+                InputProps={{ readOnly: true }} // This is the solution
               />
             </Grid>
             <Grid xs={12} md={6}>

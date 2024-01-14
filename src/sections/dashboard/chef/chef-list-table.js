@@ -150,7 +150,7 @@ export const ChefListTable = (props) => {
               <TableCell width="25%">Full Name</TableCell>
               <TableCell width="25%">Rating</TableCell>
               <TableCell>Wallet</TableCell>
-              <TableCell>Total Orders</TableCell>
+              <TableCell>Total Feedbacks</TableCell>
               <TableCell>Status</TableCell>
               <TableCell align="right">Actions</TableCell>
             </TableRow>
@@ -265,7 +265,7 @@ export const ChefListTable = (props) => {
                     </TableCell>
                     <TableCell>{wallet}</TableCell>
                     <TableCell>
-                      {chef.totalOrders ?? getRandomInt(10, 100)}
+                      {chef.totalFeedbacks ?? getRandomInt(10, 100)}
                     </TableCell>
                     <TableCell>
                       <SeverityPill color={statusColor}>

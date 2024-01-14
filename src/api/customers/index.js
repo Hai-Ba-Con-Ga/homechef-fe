@@ -2,7 +2,7 @@ import { applyPagination } from '../../utils/apply-pagination';
 import { applySort } from '../../utils/apply-sort';
 import { deepCopy } from '../../utils/deep-copy';
 import { customer, customers, emails, invoices, logs } from './data';
-import { get, put } from "../../utils/caller";
+import { get, put, del } from "../../utils/caller";
 import { tokenConfig } from "@/config";
 class CustomersApi {
   async getCustomers(request = {}) {
@@ -86,6 +86,15 @@ class CustomersApi {
     }
 
     return data;
+  }
+
+  async deleteCustomer(request) {
+    const { customerId } = request;
+    console.log("customerId", customerId);
+    const endpoint = `/user/${customerId}`;
+    const token = "Bearer " + tokenConfig.token;
+    const data = (await del(endpoint, {}, { Authorization: token })).data;
+    return Promise.resolve(data);
   }
 
   getEmails(request) {
