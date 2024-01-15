@@ -1,15 +1,15 @@
 import {
-    Avatar,
-    Card,
-    IconButton,
-    Stack,
-    SvgIcon,
-    Table,
-    TableBody,
-    TableCell,
-    TablePagination,
-    TableRow,
-    Typography,
+  Avatar,
+  Card,
+  IconButton,
+  Stack,
+  SvgIcon,
+  Table,
+  TableBody,
+  TableCell,
+  TablePagination,
+  TableRow,
+  Typography,
 } from "@mui/material";
 import ArrowRightIcon from "@untitled-ui/icons-react/build/esm/ArrowRight";
 import { format } from "date-fns";
@@ -19,6 +19,10 @@ import { Scrollbar } from "../../../components/scrollbar";
 import { SeverityPill } from "../../../components/severity-pill";
 import { paths } from "../../../paths";
 import { getInitials } from "../../../utils/get-initials";
+import Edit02Icon from "@untitled-ui/icons-react/build/esm/Edit02";
+import { Delete } from "@mui/icons-material";
+import { vouchersApi } from "@/api/vouchers";
+import toast from "react-hot-toast";
 
 const groupVouchers = (vouchers) => {
   return vouchers.reduce(
@@ -31,24 +35,35 @@ const groupVouchers = (vouchers) => {
       };
     },
     {
-      active: [],
-      inactive: [],
+      ACTIVE: [],
+      INACTIVE: [],
     }
   );
 };
 
 const statusColorsMap = {
-  inactive: "error",
-  active: "success",
+  INACTIVE: "error",
+  ACTIVE: "success",
 };
 
 const VoucherRow = (props) => {
   const { voucher, ...other } = props;
 
   const statusColor = statusColorsMap[voucher.status];
-  const startDate =
-    voucher.startDate && format(voucher.startDate, "dd/MM/yyyy");
-  const endDate = voucher.endDate && format(voucher.endDate, "dd/MM/yyyy");
+  //i want format date here
+  const startDate = format(new Date(voucher.startDate), "dd/MM/yyyy");
+  const endDate = format(new Date(voucher.endDate), "dd/MM/yyyy");
+
+  const handleDeleteClick = async () => {
+    try {
+      await vouchersApi.deleteVoucher({ voucherId: voucher.id });
+      toast.success("Voucher deleted");
+      //refresh page
+      window.location.reload();
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   return (
     <TableRow
@@ -107,10 +122,19 @@ const VoucherRow = (props) => {
       <TableCell align="right">
         <IconButton
           component={NextLink}
-          href={paths.vouchers.details.replace(":voucherId", voucher.id)}
+          href={paths.vouchers.edit.replace(":voucherId", voucher.id)}
         >
           <SvgIcon>
-            <ArrowRightIcon />
+            <Edit02Icon />
+          </SvgIcon>
+        </IconButton>
+        <IconButton
+          // component={NextLink}
+          onClick={handleDeleteClick}
+          // href={paths.vouchers.details.replace(":voucherId", voucher.id)}
+        >
+          <SvgIcon>
+            <Delete />
           </SvgIcon>
         </IconButton>
       </TableCell>

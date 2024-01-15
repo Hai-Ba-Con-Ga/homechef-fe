@@ -69,15 +69,12 @@ const Page = () => {
                   lg: 4,
                 }}
               >
-                <EcommerceStats cost={99700} profit={32100} sales={152000} />
+                <EcommerceStats sales={54} customers={20} chefs={5} />
                 <EcommerceSalesRevenue
                   chartSeries={[
                     {
-                      name: "New Customers",
-                      data: [
-                        3350, 1840, 2254, 5780, 9349, 5241, 2770, 2051, 3764,
-                        2385, 5912, 8323,
-                      ],
+                      name: "New Orders",
+                      data: [3, 4, 7, 3, 2, 4, 7, 10],
                     },
                   ]}
                 />
@@ -124,32 +121,32 @@ const Page = () => {
                     {
                       id: "5eff2512c6f8737d08325676",
                       image: "/assets/avatars/avatar-carson-darrin.png",
-                      name: "Cleveland",
-                      sales: 22,
+                      name: "Hong Tran",
+                      sales: 18,
                     },
                     {
                       id: "5e887b7602bdbc4dbb234b27",
                       image: "/assets/avatars/avatar-fran-perez.png",
-                      name: "Atlanta",
-                      sales: 18,
+                      name: "Cat Nguyen",
+                      sales: 15,
                     },
                     {
                       id: "5e86809283e28b96d2d38537",
                       image: "/assets/avatars/avatar-anika-visser.png",
-                      name: "Jie Yan Song",
-                      sales: 15,
+                      name: "Thuy Tien",
+                      sales: 10,
                     },
                     {
                       id: "5eff251e297fd17f0dc18a8b",
                       image: "/assets/avatars/avatar-miron-vitold.png",
-                      name: "Necessaire",
-                      sales: 14,
+                      name: "Van Do",
+                      sales: 9,
                     },
                     {
                       id: "5eff2524ef813f061b3ea39f",
                       image: "/assets/avatars/avatar-anika-visser.png",
-                      name: "Soja CO",
-                      sales: 10,
+                      name: "Hoa Nguyen",
+                      sales: 7,
                     },
                   ]}
                 />

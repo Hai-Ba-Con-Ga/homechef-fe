@@ -1,10 +1,8 @@
 import { SvgIcon } from "@mui/material";
-import Building04Icon from "../../icons/untitled-ui/duocolor/building-04";
 import HomeSmileIcon from "../../icons/untitled-ui/duocolor/home-smile";
 import LayoutAlt02Icon from "../../icons/untitled-ui/duocolor/layout-alt-02";
 import MessageChatSquareIcon from "../../icons/untitled-ui/duocolor/message-chat-square";
 import ReceiptCheckIcon from "../../icons/untitled-ui/duocolor/receipt-check";
-import Share07Icon from "../../icons/untitled-ui/duocolor/share-07";
 import ShoppingBag03Icon from "../../icons/untitled-ui/duocolor/shopping-bag-03";
 import ShoppingCart01Icon from "../../icons/untitled-ui/duocolor/shopping-cart-01";
 import Users03Icon from "../../icons/untitled-ui/duocolor/users-03";

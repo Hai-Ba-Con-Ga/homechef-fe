@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import {
   Box,
   Card,
@@ -9,6 +8,7 @@ import {
   Typography
 } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
+import PropTypes from 'prop-types';
 import { EcommerceWorldMap } from './ecommerce-world-map';
 
 
@@ -20,7 +20,7 @@ export const EcommerceSalesByCountry = (props) => {
 
   return (
     <Card>
-      <CardHeader title="Sales by Area" />
+      <CardHeader title="Customers in Area" />
       <Stack
         alignItems={{
           md: "center",

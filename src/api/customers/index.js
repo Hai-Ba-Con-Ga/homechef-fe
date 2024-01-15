@@ -2,7 +2,7 @@ import { applyPagination } from '../../utils/apply-pagination';
 import { applySort } from '../../utils/apply-sort';
 import { deepCopy } from '../../utils/deep-copy';
 import { customer, customers, emails, invoices, logs } from './data';
-import { get, put, del } from "../../utils/caller";
+import { get, put, del, post } from "../../utils/caller";
 import { tokenConfig } from "@/config";
 class CustomersApi {
   async getCustomers(request = {}) {
@@ -97,6 +97,16 @@ class CustomersApi {
     return Promise.resolve(data);
   }
 
+  async createCustomer(request) {
+    const endpoint = "/user";
+    const token = "Bearer " + tokenConfig.token;
+    const data = (await post(endpoint, request, { Authorization: token })).data;
+    if (typeof data === "undefined") {
+      return Promise.reject(new Error("Customer not found"));
+    }
+    return Promise.resolve(deepCopy(data));
+  }
+
   getEmails(request) {
     return Promise.resolve(deepCopy(emails));
   }
@@ -110,7 +120,6 @@ class CustomersApi {
   }
 
   async updateCustomer(customerId, customer) {
-    console.log("customerId", customerId);
     const endpoint = `/user/${customerId}`;
     const token = "Bearer " + tokenConfig.token;
     const data = (await put(endpoint, customer, { Authorization: token })).data;

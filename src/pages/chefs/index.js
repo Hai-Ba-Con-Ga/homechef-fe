@@ -1,21 +1,16 @@
 import { chefsApi } from "@/api/chefs";
 import {
   Box,
-  Button,
   Card,
   Container,
   Stack,
-  SvgIcon,
-  Typography,
+  Typography
 } from "@mui/material";
-import PlusIcon from "@untitled-ui/icons-react/build/esm/Plus";
 import Head from "next/head";
-import NextLink from "next/link";
 import { useCallback, useEffect, useState } from "react";
 import { useMounted } from "../../hooks/use-mounted";
 import { usePageView } from "../../hooks/use-page-view";
 import { Layout as DashboardLayout } from "../../layouts/dashboard";
-import { paths } from "../../paths";
 import { ChefListSearch } from "../../sections/dashboard/chef/chef-list-search";
 import { ChefListTable } from "../../sections/dashboard/chef/chef-list-table";
 
@@ -123,20 +118,6 @@ const ChefList = () => {
             <Stack direction="row" justifyContent="space-between" spacing={4}>
               <Stack spacing={1}>
                 <Typography variant="h4">Chefs</Typography>
-              </Stack>
-              <Stack alignItems="center" direction="row" spacing={3}>
-                <Button
-                  component={NextLink}
-                  href={paths.chefs.details}
-                  startIcon={
-                    <SvgIcon>
-                      <PlusIcon />
-                    </SvgIcon>
-                  }
-                  variant="contained"
-                >
-                  Add
-                </Button>
               </Stack>
             </Stack>
             <Card>

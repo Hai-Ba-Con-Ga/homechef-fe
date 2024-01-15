@@ -1,20 +1,20 @@
 import { tokenConfig } from "@/config";
-import { get } from "../../utils/caller";
-import { vouchers } from "./data";
 import { applyPagination } from "../../utils/apply-pagination";
 import { applySort } from "../../utils/apply-sort";
+import { get, post, put, del } from "../../utils/caller";
+import { vouchers } from "./data";
 
 class VouchersApi {
   async getVouchers(request = {}) {
     const token = "Bearer " + tokenConfig.token;
     const { filters, page, rowsPerPage, sortBy, sortDir } = request;
     const endpoint = "/voucher";
-    // let data = (await get(endpoint, {}, { Authorization: token })).data;
+    let data = (await get(endpoint, {}, { Authorization: token })).data;
 
-    // if (data.length === 0) {
-    //   data = vouchers;
-    // }
-    let data = vouchers;
+    if (data.length === 0) {
+      data = vouchers;
+    }
+    // let data = vouchers;
 
     let count = data.length;
     if (typeof filters !== "undefined") {
@@ -75,10 +75,41 @@ class VouchersApi {
     });
   }
   async getVoucher(request) {
-    const { id } = request;
-    const endpoint = `/vouchers/${id}`;
-    let data = (await get(endpoint)).data;
+    const { voucherId } = request;
+    const token = "Bearer " + tokenConfig.token;
+    const endpoint = `/voucher/${voucherId}`;
+    let data = (await get(endpoint, request, { Authorization: token })).data;
 
+    return data;
+  }
+  async createVoucher(request) {
+    const endpoint = "/voucher";
+    const token = "Bearer " + tokenConfig.token;
+    const data = (await post(endpoint, request, { Authorization: token })).data;
+    if (typeof data === "undefined") {
+      return Promise.reject(new Error("Something went wrong"));
+    }
+
+    return data;
+  }
+
+  async updateVoucher(voucherId, voucher) {
+    const endpoint = `/voucher/${voucherId}`;
+    const token = "Bearer " + tokenConfig.token;
+    const data = (await put(endpoint, voucher, { Authorization: token })).data;
+    if (typeof data === "undefined") {
+      return Promise.reject(new Error("Something went wrong"));
+    }
+    return data;
+  }
+  async deleteVoucher(request) {
+    const { voucherId } = request;
+    const endpoint = `/voucher/${voucherId}`;
+    const token = "Bearer " + tokenConfig.token;
+    const data = (await del(endpoint, request, { Authorization: token })).data;
+    if (typeof data === "undefined") {
+      return Promise.reject(new Error("Something went wrong"));
+    }
     return data;
   }
 }

@@ -96,6 +96,7 @@ export const paths = {
     index: "/customers",
     details: "/customers/:customerId",
     edit: "/customers/:customerId/edit",
+    create: "/customers/create",
   },
   chefs: {
     index: "/chefs",
@@ -105,6 +106,7 @@ export const paths = {
     index: "/vouchers",
     details: "/vouchers/:voucherId",
     create: "/vouchers/create",
+    edit: "/vouchers/:voucherId/edit",
   },
   orders: {
     index: "/orders",

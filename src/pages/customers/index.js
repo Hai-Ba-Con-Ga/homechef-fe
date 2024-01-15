@@ -11,11 +11,13 @@ import Download01Icon from "@untitled-ui/icons-react/build/esm/Download01";
 import PlusIcon from "@untitled-ui/icons-react/build/esm/Plus";
 import Upload01Icon from "@untitled-ui/icons-react/build/esm/Upload01";
 import Head from "next/head";
+import NextLink from "next/link";
 import { useCallback, useEffect, useState } from "react";
 import { customersApi } from "../../api/customers";
 import { useMounted } from "../../hooks/use-mounted";
 import { usePageView } from "../../hooks/use-page-view";
 import { Layout as DashboardLayout } from "../../layouts/dashboard";
+import { paths } from "../../paths";
 import { CustomerListSearch } from "../../sections/dashboard/customer/customer-list-search";
 import { CustomerListTable } from "../../sections/dashboard/customer/customer-list-table";
 
@@ -169,6 +171,8 @@ const Page = () => {
                     </SvgIcon>
                   }
                   variant="contained"
+                  component={NextLink}
+                  href={paths.customers.create}
                 >
                   Add
                 </Button>
