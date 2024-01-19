@@ -69,7 +69,7 @@ const Page = () => {
                   lg: 4,
                 }}
               >
-                <EcommerceStats sales={54} customers={20} chefs={5} />
+                <EcommerceStats sales={40} customers={20} chefs={5} />
                 <EcommerceSalesRevenue
                   chartSeries={[
                     {

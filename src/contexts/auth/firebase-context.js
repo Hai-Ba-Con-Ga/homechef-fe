@@ -64,11 +64,11 @@ export const AuthProvider = (props) => {
           user: {
             id: user.uid,
             avatar: user.photoURL || undefined,
-            email: user.email || 'anika.visser@devias.io',
-            name: 'Anika Visser',
-            plan: 'Premium'
-          }
-        }
+            email: user.email || "anika.visser@devias.io",
+            name: "Admin",
+            plan: "Premium",
+          },
+        },
       });
     } else {
       dispatch({

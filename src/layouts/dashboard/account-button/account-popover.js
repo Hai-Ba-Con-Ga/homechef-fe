@@ -67,23 +67,19 @@ export const AccountPopover = (props) => {
     <Popover
       anchorEl={anchorEl}
       anchorOrigin={{
-        horizontal: 'center',
-        vertical: 'bottom'
+        horizontal: "center",
+        vertical: "bottom",
       }}
       disableScrollLock
       onClose={onClose}
       open={!!open}
       PaperProps={{ sx: { width: 200 } }}
-      {...other}>
+      {...other}
+    >
       <Box sx={{ p: 2 }}>
-        <Typography variant="body1">
-          Anika Visser
-        </Typography>
-        <Typography
-          color="text.secondary"
-          variant="body2"
-        >
-          demo@devias.io
+        <Typography variant="body1">Admin</Typography>
+        <Typography color="text.secondary" variant="body2">
+          admin@gmail.com
         </Typography>
       </Box>
       <Divider />
@@ -94,7 +90,7 @@ export const AccountPopover = (props) => {
           sx={{
             borderRadius: 1,
             px: 1,
-            py: 0.5
+            py: 0.5,
           }}
         >
           <ListItemIcon>
@@ -103,11 +99,7 @@ export const AccountPopover = (props) => {
             </SvgIcon>
           </ListItemIcon>
           <ListItemText
-            primary={(
-              <Typography variant="body1">
-                Profile
-              </Typography>
-            )}
+            primary={<Typography variant="body1">Profile</Typography>}
           />
         </ListItemButton>
         <ListItemButton
@@ -116,7 +108,7 @@ export const AccountPopover = (props) => {
           sx={{
             borderRadius: 1,
             px: 1,
-            py: 0.5
+            py: 0.5,
           }}
         >
           <ListItemIcon>
@@ -125,11 +117,7 @@ export const AccountPopover = (props) => {
             </SvgIcon>
           </ListItemIcon>
           <ListItemText
-            primary={(
-              <Typography variant="body1">
-                Settings
-              </Typography>
-            )}
+            primary={<Typography variant="body1">Settings</Typography>}
           />
         </ListItemButton>
         <ListItemButton
@@ -138,7 +126,7 @@ export const AccountPopover = (props) => {
           sx={{
             borderRadius: 1,
             px: 1,
-            py: 0.5
+            py: 0.5,
           }}
         >
           <ListItemIcon>
@@ -147,27 +135,19 @@ export const AccountPopover = (props) => {
             </SvgIcon>
           </ListItemIcon>
           <ListItemText
-            primary={(
-              <Typography variant="body1">
-                Billing
-              </Typography>
-            )}
+            primary={<Typography variant="body1">Billing</Typography>}
           />
         </ListItemButton>
       </Box>
-      <Divider sx={{ my: '0 !important' }} />
+      <Divider sx={{ my: "0 !important" }} />
       <Box
         sx={{
-          display: 'flex',
+          display: "flex",
           p: 1,
-          justifyContent: 'center'
+          justifyContent: "center",
         }}
       >
-        <Button
-          color="inherit"
-          onClick={handleLogout}
-          size="small"
-        >
+        <Button color="inherit" onClick={handleLogout} size="small">
           Logout
         </Button>
       </Box>
