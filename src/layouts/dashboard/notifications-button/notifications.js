@@ -7,7 +7,7 @@ export const notifications = [
     id: "5e8883f1b51cc1956a5a1ec0",
     author: "Cat Nguyen",
     avatar: "/assets/avatars/avatar-jie-yan-song.png",
-    createdAt: subHours(now, 2).getTime(),
+    createdAt: subHours(now, 1).getTime(),
     job: "",
     read: true,
     type: "new_order",
