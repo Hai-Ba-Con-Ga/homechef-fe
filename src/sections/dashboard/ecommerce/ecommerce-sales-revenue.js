@@ -196,6 +196,8 @@ export const EcommerceSalesRevenue = (props) => {
   const [filters, setFilters] = useState({});
   const [chartSeries, setChartSeries] = useState([]);
 
+  const [sortBy1, setSortBy1] = useState("today");
+
   const handleFiltersUpdate = useCallback(() => {
     onFiltersChange?.(filters);
   }, [filters, onFiltersChange]);
@@ -204,19 +206,22 @@ export const EcommerceSalesRevenue = (props) => {
 
   const handleSortChange = useCallback(
     (event) => {
-      const [sortBy] = event.target.value;
-
+      const sortBy = event.target.value;
+      setSortBy1(sortBy);
       onSortChange?.({ sortBy });
     },
     [onSortChange]
   );
 
   useEffect(() => {
-    console.log(sortBy);
+    console.log(sortBy1);
     const chart =
-      charts.find((item) => item.label == sortBy)?.value.chartSeries || [];
+      charts.find((item) => item.label == sortBy1)?.value.chartSeries || [];
     setChartSeries(chart);
-  }, [sortBy]);
+  }, [sortBy1]);
+
+
+
   useUpdateEffect(() => {
     handleFiltersUpdate();
   }, [filters, onFiltersChange]);
