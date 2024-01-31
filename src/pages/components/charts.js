@@ -61,7 +61,7 @@ const components = [
   {
     element: <Chart11 />,
     title: "Chart 11",
-  },
+},
   {
     element: <Chart12 />,
     title: "Chart 12",

@@ -73,7 +73,7 @@ const Page = () => {
                 <EcommerceSalesRevenue
                   chartSeries={[
                     {
-                      name: "New Orders",
+                      name: "Orders",
                       data: [3, 4, 7, 3, 2, 4, 7, 10],
                     },
                   ]}
@@ -149,10 +149,40 @@ const Page = () => {
                       sales: 7,
                     },
                   ]}
+                  title={"Top Chefs of the Month"}
                 />
-                <EcommerceCostBreakdown
+                {/* <EcommerceCostBreakdown
                   chartSeries={[14859, 35690, 45120, 25486]}
                   labels={["Strategy", "Outsourcing", "Marketing", "Other"]}
+                /> */}
+                <EcommerceProducts
+                  products={[
+                    {
+                      id: "5eff2512c6f8737d08325676",
+                      image: "/assets/products/ga-kho.jpg",
+                      name: "Gà kho gừng",
+                      sales: 18,
+                    },
+                    {
+                      id: "5e887b7602bdbc4dbb234b27",
+                      image: "/assets/products/canh-chua.jpg",
+                      name: "Canh chua",
+                      sales: 15,
+                    },
+                    {
+                      id: "5e86809283e28b96d2d38537",
+                      image: "/assets/products/thit-kho-trung.jpg",
+                      name: "Thịt kho tàu",
+                      sales: 10,
+                    },
+                    {
+                      id: "5eff251e297fd17f0dc18a8b",
+                      image: "/assets/products/thit-nuong.jpeg",
+                      name: "Thịt nướng",
+                      sales: 9,
+                    },
+                  ]}
+                  title={"Top Meals of the Month"}
                 />
               </Stack>
             </Grid>

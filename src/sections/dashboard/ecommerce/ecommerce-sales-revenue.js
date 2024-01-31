@@ -8,19 +8,32 @@ import { useUpdateEffect } from "@/hooks/use-update-effect";
 
 const now = new Date();
 
-const createCategories = () => {
-  const categories = [];
-
-  for (let i = 12; i >= 0; i--) {
-    categories.push(format(subDays(now, i), "dd MMM"));
+const createCategories = (sortBy) => {
+  var categories = [];
+  if (sortBy === "week") {
+    categories = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
+  } else if (sortBy === "month") {
+    categories = [
+      "Jan",
+      "Feb",
+      "Mar",
+      "Apr",
+      "May",
+      "Jun",
+      "Jul",
+      "Aug",
+      "Sep",
+      "Oct",
+      "Nov",
+      "Dec",
+    ];
   }
-
   return categories;
 };
 
-const useChartOptions = () => {
+const useChartOptions = (sortBy) => {
   const theme = useTheme();
-  const categories = createCategories();
+  const categories = createCategories(sortBy);
 
   return {
     chart: {
@@ -125,17 +138,6 @@ const useChartOptions = () => {
 
 const charts = [
   {
-    label: "today",
-    value: {
-      chartSeries: [
-        {
-          name: "Today",
-          data: [3, 4, 7, 3, 2, 4, 7, 10],
-        },
-      ],
-    },
-  },
-  {
     label: "week",
     value: {
       chartSeries: [
@@ -152,18 +154,7 @@ const charts = [
       chartSeries: [
         {
           name: "Month",
-          data: [3, 4, 7, 3, 2, 4, 7, 10],
-        },
-      ],
-    },
-  },
-  {
-    label: "year",
-    value: {
-      chartSeries: [
-        {
-          name: "Year",
-          data: [3, 4, 7, 3, 2, 4, 7, 10],
+          data: [2, 5, 3, 7, 3, 4, 7, 10, 2, 5, 3, 7],
         },
       ],
     },
@@ -172,10 +163,6 @@ const charts = [
 
 const sortOptions = [
   {
-    label: "Today",
-    value: "today",
-  },
-  {
     label: "Last week",
     value: "week",
   },
@@ -183,20 +170,16 @@ const sortOptions = [
     label: "Last month",
     value: "month",
   },
-  {
-    label: "Last year",
-    value: "year",
-  },
 ];
 
 export const EcommerceSalesRevenue = (props) => {
   // const { chartSeries } = props;
-  const chartOptions = useChartOptions();
+
+  const [sortBy1, setSortBy1] = useState("week");
+  const chartOptions = useChartOptions(sortBy1);
   const { onFiltersChange, onSortChange, sortBy } = props;
   const [filters, setFilters] = useState({});
   const [chartSeries, setChartSeries] = useState([]);
-
-  const [sortBy1, setSortBy1] = useState("today");
 
   const handleFiltersUpdate = useCallback(() => {
     onFiltersChange?.(filters);
@@ -219,8 +202,6 @@ export const EcommerceSalesRevenue = (props) => {
       charts.find((item) => item.label == sortBy1)?.value.chartSeries || [];
     setChartSeries(chart);
   }, [sortBy1]);
-
-
 
   useUpdateEffect(() => {
     handleFiltersUpdate();

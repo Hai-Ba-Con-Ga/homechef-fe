@@ -139,7 +139,7 @@ export const CustomerListSearch = (props) => {
           label="Sort By"
           name="sort"
           onChange={handleSortChange}
-          select
+          select  
           SelectProps={{ native: true }}
           value={`${sortBy}|${sortDir}`}
         >
