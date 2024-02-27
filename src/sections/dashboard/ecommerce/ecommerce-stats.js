@@ -166,7 +166,7 @@ export const EcommerceStats = (props) => {
               </Box>
               <div>
                 <Typography color="text.secondary" variant="body2">
-                  New Orders
+                  Orders
                 </Typography>
                 <Typography variant="h5">{sales}</Typography>
               </div>
@@ -201,7 +201,7 @@ export const EcommerceStats = (props) => {
               </Box>
               <div>
                 <Typography color="text.secondary" variant="body2">
-                  New Customers
+                  Customers
                 </Typography>
                 <Typography variant="h5">{customers}</Typography>
               </div>
@@ -236,7 +236,7 @@ export const EcommerceStats = (props) => {
               </Box>
               <div>
                 <Typography color="text.secondary" variant="body2">
-                  New Chefs
+                  Chefs
                 </Typography>
                 <Typography variant="h5">{chefs}</Typography>
               </div>

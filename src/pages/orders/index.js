@@ -46,6 +46,7 @@ const useOrders = (search) => {
   const getOrders = useCallback(async () => {
     try {
       const response = await ordersApi.getOrders(search);
+      console.log(response);
 
       if (isMounted()) {
         setState({

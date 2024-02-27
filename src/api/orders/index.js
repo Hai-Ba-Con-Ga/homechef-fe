@@ -10,12 +10,10 @@ class OrdersApi {
     const endpoint = "/order";
     let data = (await get(endpoint, {})).data;
     let count = data.length;
-
     if (count === 0) {
       data = orders;
-      count = orders.length;
+      count = data.length;
     }
-
     if (typeof filters !== "undefined") {
       data = data.filter((order) => {
         if (typeof filters.query !== "undefined" && filters.query !== "") {

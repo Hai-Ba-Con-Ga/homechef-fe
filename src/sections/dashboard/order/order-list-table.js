@@ -42,11 +42,10 @@ export const OrderListTable = (props) => {
       <Table>
         <TableBody>
           {orders.map((order) => {
-            const cookedTime = new Date(order.cookedTime);
-            const createdAtMonth = format(cookedTime, "LLL").toUpperCase();
-            const createdAtDay = format(cookedTime, "d");
-            const statusColor =
-              statusMap[order.transaction[0].transactionStatus] || "warning";
+            // const createdAtMonth = format(order.createdAt, 'LLL').toUpperCase();
+            // const createdAtDay = format(order.createdAt, 'd');
+            // const totalAmount = numeral(order.totalAmount).format(`${order.currency}0,0.00`);
+            const statusColor = statusMap[order.status] || 'warning';
 
             return (
               <TableRow
@@ -73,17 +72,27 @@ export const OrderListTable = (props) => {
                       p: 1,
                     }}
                   >
-                    <Typography align="center" variant="subtitle2">
-                      {createdAtMonth}
+                    <Typography
+                      align="center"
+                      variant="subtitle2"
+                    >
+                      {order.cookedTime}
                     </Typography>
                     <Typography align="center" variant="h6">
                       {createdAtDay}
                     </Typography>
                   </Box>
                   <Box sx={{ ml: 2 }}>
-                    <Typography variant="subtitle2">{order.id}</Typography>
-                    <Typography color="text.secondary" variant="body2">
-                      {order.totalPrice} VND
+                    <Typography variant="subtitle2">
+                      {order.id}
+                    </Typography>
+                    <Typography
+                      color="text.secondary"
+                      variant="body2"
+                    >
+                      Total of
+                      {' '}
+                      {order.totalPrice}
                     </Typography>
                   </Box>
                 </TableCell>

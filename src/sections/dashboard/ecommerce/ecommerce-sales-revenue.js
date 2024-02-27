@@ -9,24 +9,19 @@ import { useUpdateEffect } from "@/hooks/use-update-effect";
 const now = new Date();
 
 const createCategories = (sortBy) => {
-  var categories = [];
-  if (sortBy === "week") {
-    categories = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
-  } else if (sortBy === "month") {
-    categories = [
-      "Jan",
-      "Feb",
-      "Mar",
-      "Apr",
-      "May",
-      "Jun",
-      "Jul",
-      "Aug",
-      "Sep",
-      "Oct",
-      "Nov",
-      "Dec",
-    ];
+  const categories = [];
+
+  if (sortBy == "week") {
+    for (let i = 6; i >= 0; i--) {
+      categories.push(format(subDays(now, i), "dd MMM"));
+    }
+    return categories;
+  }
+  if (sortBy == "month") {
+    for (let i = 12; i >= 0; i--) {
+      categories.push(format(subDays(now, i), "dd MMM"));
+    }
+    return categories;
   }
   return categories;
 };
@@ -154,7 +149,18 @@ const charts = [
       chartSeries: [
         {
           name: "Month",
-          data: [2, 5, 3, 7, 3, 4, 7, 10, 2, 5, 3, 7],
+          data: [6, 3, 5, 2, 5, 3, 7, 5, 4, 6, 3, 5],
+        },
+      ],
+    },
+  },
+  {
+    label: "year",
+    value: {
+      chartSeries: [
+        {
+          name: "Year",
+          data: [3, 4, 7, 3, 2, 4, 7, 10],
         },
       ],
     },
