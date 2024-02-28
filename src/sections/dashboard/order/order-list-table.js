@@ -1,6 +1,6 @@
-import PropTypes from 'prop-types';
-import { format } from 'date-fns';
-import numeral from 'numeral';
+import PropTypes from "prop-types";
+import { format } from "date-fns";
+import numeral from "numeral";
 import {
   Box,
   Table,
@@ -8,17 +8,23 @@ import {
   TableCell,
   TablePagination,
   TableRow,
-  Typography
-} from '@mui/material';
-import { SeverityPill } from '../../../components/severity-pill';
+  Typography,
+} from "@mui/material";
+import { SeverityPill } from "../../../components/severity-pill";
 
 const statusMap = {
-  complete: 'success',
-  pending: 'info',
-  canceled: 'warning',
-  rejected: 'error'
+  0: "info",
+  1: "success",
+  2: "warning",
+  3: "error",
 };
 
+const transactionStatusMap = {
+  0: "pending",
+  1: "complete",
+  2: "rejected",
+  3: "cancelled",
+};
 export const OrderListTable = (props) => {
   const {
     onOrderSelect,
@@ -36,65 +42,58 @@ export const OrderListTable = (props) => {
       <Table>
         <TableBody>
           {orders.map((order) => {
-            const createdAtMonth = format(order.createdAt, 'LLL').toUpperCase();
-            const createdAtDay = format(order.createdAt, 'd');
-            const totalAmount = numeral(order.totalAmount).format(`${order.currency}0,0.00`);
-            const statusColor = statusMap[order.status] || 'warning';
+            const cookedTime = new Date(order.cookedTime);
+            const createdAtMonth = format(cookedTime, "LLL").toUpperCase();
+            const createdAtDay = format(cookedTime, "d");
+            const statusColor =
+              statusMap[order.transaction[0].transactionStatus] || "warning";
 
             return (
               <TableRow
                 hover
                 key={order.id}
                 onClick={() => onOrderSelect?.(order.id)}
-                sx={{ cursor: 'pointer' }}
+                sx={{ cursor: "pointer" }}
               >
                 <TableCell
                   sx={{
-                    alignItems: 'center',
-                    display: 'flex'
+                    alignItems: "center",
+                    display: "flex",
                   }}
                 >
                   <Box
                     sx={{
-                      backgroundColor: (theme) => theme.palette.mode === 'dark'
-                        ? 'neutral.800'
-                        : 'neutral.200',
+                      backgroundColor: (theme) =>
+                        theme.palette.mode === "dark"
+                          ? "neutral.800"
+                          : "neutral.200",
                       borderRadius: 2,
-                      maxWidth: 'fit-content',
+                      maxWidth: "fit-content",
                       ml: 3,
-                      p: 1
+                      p: 1,
                     }}
                   >
-                    <Typography
-                      align="center"
-                      variant="subtitle2"
-                    >
+                    <Typography align="center" variant="subtitle2">
                       {createdAtMonth}
                     </Typography>
-                    <Typography
-                      align="center"
-                      variant="h6"
-                    >
+                    <Typography align="center" variant="h6">
                       {createdAtDay}
                     </Typography>
                   </Box>
                   <Box sx={{ ml: 2 }}>
-                    <Typography variant="subtitle2">
-                      {order.number}
-                    </Typography>
-                    <Typography
-                      color="text.secondary"
-                      variant="body2"
-                    >
-                      Total of
-                      {' '}
-                      {totalAmount}
+                    <Typography variant="subtitle2">{order.id}</Typography>
+                    <Typography color="text.secondary" variant="body2">
+                      {order.totalPrice} VND
                     </Typography>
                   </Box>
                 </TableCell>
                 <TableCell align="right">
                   <SeverityPill color={statusColor}>
-                    {order.status}
+                    {
+                      transactionStatusMap[
+                        order.transaction[0].transactionStatus
+                      ]
+                    }
                   </SeverityPill>
                 </TableCell>
               </TableRow>
@@ -122,5 +121,5 @@ OrderListTable.propTypes = {
   orders: PropTypes.array.isRequired,
   ordersCount: PropTypes.number.isRequired,
   page: PropTypes.number.isRequired,
-  rowsPerPage: PropTypes.number.isRequired
+  rowsPerPage: PropTypes.number.isRequired,
 };

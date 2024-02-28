@@ -8,15 +8,16 @@ import {
   Typography,
 } from "@mui/material";
 import RefreshCcw01Icon from "@untitled-ui/icons-react/build/esm/RefreshCcw01";
+import ArrowRightIcon from "@untitled-ui/icons-react/build/esm/ArrowRight";
 import Head from "next/head";
 import { usePageView } from "../hooks/use-page-view";
 import { useSettings } from "../hooks/use-settings";
 import { Layout as DashboardLayout } from "../layouts/dashboard";
-import { EcommerceCostBreakdown } from "../sections/dashboard/ecommerce/ecommerce-cost-breakdown";
 import { EcommerceProducts } from "../sections/dashboard/ecommerce/ecommerce-products";
 import { EcommerceSalesByCountry } from "../sections/dashboard/ecommerce/ecommerce-sales-by-country";
 import { EcommerceSalesRevenue } from "../sections/dashboard/ecommerce/ecommerce-sales-revenue";
 import { EcommerceStats } from "../sections/dashboard/ecommerce/ecommerce-stats";
+import { AnalyticsStats } from "../sections/dashboard/analytics/analytics-stats";
 
 const Page = () => {
   const settings = useSettings();
@@ -62,6 +63,78 @@ const Page = () => {
                 </Stack>
               </Stack>
             </Grid>
+            <Grid xs={12} container>
+              <Grid xs={12} md={4}>
+                <AnalyticsStats
+                  chartSeries={[
+                    {
+                      data: [
+                        0, 170, 242, 98, 63, 56, 85, 171, 209, 163, 204, 21,
+                        264, 0,
+                      ],
+                    },
+                  ]}
+                  title="Revenue Today"
+                  value="2.2M VND"
+                />
+              </Grid>
+              <Grid xs={12} md={4}>
+                <AnalyticsStats
+                  chartSeries={[
+                    {
+                      data: [
+                        0, 245, 290, 187, 172, 106, 15, 210, 202, 19, 18, 3,
+                        212, 0,
+                      ],
+                    },
+                  ]}
+                  title="Revenue Week"
+                  value="20.5M VND"
+                />
+              </Grid>
+              <Grid xs={12} md={4}>
+                <AnalyticsStats
+                  chartSeries={[
+                    {
+                      data: [
+                        0, 277, 191, 93, 92, 85, 166, 240, 63, 4, 296, 144, 166,
+                        0,
+                      ],
+                    },
+                  ]}
+                  title="Revenue Month"
+                  value="80.5M VND"
+                />
+              </Grid>
+            </Grid>
+
+            {/* <Grid xs={12} md={4}>
+              <AnalyticsStats
+                action={
+                  <Button
+                    color="inherit"
+                    endIcon={
+                      <SvgIcon>
+                        <ArrowRightIcon />
+                      </SvgIcon>
+                    }
+                    size="small"
+                  >
+                    See sources
+                  </Button>
+                }
+                chartSeries={[
+                  {
+                    data: [
+                      0, 170, 242, 98, 63, 56, 85, 171, 209, 163, 204, 21, 264,
+                      0,
+                    ],
+                  },
+                ]}
+                title="Impressions"
+                value="36,6K"
+              />
+            </Grid> */}
             <Grid xs={12} lg={8}>
               <Stack
                 spacing={{

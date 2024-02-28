@@ -26,17 +26,17 @@ const data = [
   {
     label: "week",
     value: {
-      sales: 100,
-      customers: 200,
-      chefs: 300,
+      sales: 45,
+      customers: 17,
+      chefs: 5,
     },
   },
   {
     label: "month",
     value: {
-      sales: 200,
-      customers: 400,
-      chefs: 600,
+      sales: 189,
+      customers: 51,
+      chefs: 16,
     },
   },
   {
@@ -123,7 +123,7 @@ export const EcommerceStats = (props) => {
               </Box>
               <div>
                 <Typography color="text.secondary" variant="body2">
-                  Orders
+                  New Orders
                 </Typography>
                 <Typography variant="h5">{sales}</Typography>
               </div>
@@ -158,7 +158,7 @@ export const EcommerceStats = (props) => {
               </Box>
               <div>
                 <Typography color="text.secondary" variant="body2">
-                  Customers
+                  New Customers
                 </Typography>
                 <Typography variant="h5">{customers}</Typography>
               </div>
@@ -193,7 +193,7 @@ export const EcommerceStats = (props) => {
               </Box>
               <div>
                 <Typography color="text.secondary" variant="body2">
-                  Chefs
+                  New Chefs
                 </Typography>
                 <Typography variant="h5">{chefs}</Typography>
               </div>

@@ -112,6 +112,9 @@ export const paths = {
     index: "/orders",
     details: "/orders/:orderId",
   },
+  transactions: {
+    index: "/transactions",
+  },
   chat: "/chat",
   components: {
     index: "/components",

@@ -157,7 +157,7 @@ const Page = () => {
   return (
     <>
       <Head>
-        <title>Dashboard: Order List | Devias Kit PRO</title>
+        <title>Dashboard: Order List </title>
       </Head>
       <Divider />
       <Box

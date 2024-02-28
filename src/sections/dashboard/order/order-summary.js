@@ -38,25 +38,25 @@ export const OrderSummary = (props) => {
           label="Customer"
         >
           <Typography variant="subtitle2">
-            {order.customer.name}
+            {order.customer.fullName}
           </Typography>
           <Typography
             color="text.secondary"
             variant="body2"
           >
-            {order.customer.address1}
+            {order.address.street}
           </Typography>
           <Typography
             color="text.secondary"
             variant="body2"
           >
-            {order.customer.city}
+            {order.customer.ward}
           </Typography>
           <Typography
             color="text.secondary"
             variant="body2"
           >
-            {order.customer.country}
+            {order.customer.district}
           </Typography>
         </PropertyListItem>
         <Divider />
@@ -68,14 +68,14 @@ export const OrderSummary = (props) => {
         <Divider />
         <PropertyListItem
           align={align}
-          label="Invoice"
-          value={order.number}
+          label="Quantity"
+          value={order.quantity}
         />
         <Divider />
         <PropertyListItem
           align={align}
           label="Date"
-          value={createdAt}
+          value={order.cookedTime}
         />
         <Divider />
         <PropertyListItem
@@ -87,7 +87,7 @@ export const OrderSummary = (props) => {
         <PropertyListItem
           align={align}
           label="Total Amount"
-          value={`${order.currency}${order.totalAmount}`}
+          value={`${order.totalPrice}`}
         />
         <Divider />
         <PropertyListItem
@@ -116,7 +116,7 @@ export const OrderSummary = (props) => {
                 flexGrow: 1,
                 minWidth: 150
               }}
-              value={status}
+              value={order.status}
             >
               {statusOptions.map((option) => (
                 <option
