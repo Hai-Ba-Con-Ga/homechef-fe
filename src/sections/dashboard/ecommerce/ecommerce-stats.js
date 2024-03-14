@@ -1,3 +1,4 @@
+import { dashboardApi } from "@/api/dashboard";
 import {
   Box,
   Card,
@@ -8,6 +9,7 @@ import {
   Typography,
   TextField,
 } from "@mui/material";
+import { forEach } from "lodash";
 import numeral from "numeral";
 import { useCallback, useEffect, useState } from "react";
 
@@ -22,32 +24,72 @@ const sortOptions = [
   },
 ];
 
-const data = [
-  {
-    label: "week",
-    value: {
-      sales: 45,
-      customers: 17,
-      chefs: 5,
-    },
-  },
-  {
-    label: "month",
-    value: {
-      sales: 189,
-      customers: 51,
-      chefs: 16,
-    },
-  },
-  {
-    label: "year",
-    value: {
-      sales: 300,
-      customers: 600,
-      chefs: 900,
-    },
-  },
-];
+// const data = [
+//   {
+//     label: "week",
+//     value: {
+//       sales: 45,
+//       customers: 17,
+//       chefs: 5,
+//     },
+//   },
+//   {
+//     label: "month",
+//     value: {
+//       sales: 189,
+//       customers: 51,
+//       chefs: 16,
+//     },
+//   },
+//   {
+//     label: "year",
+//     value: {
+//       sales: 300,
+//       customers: 600,
+//       chefs: 900,
+//     },
+//   },
+// ];
+let data = [];
+let by = ["WEEK", "MONTH"];
+
+// Define a function to handle fetching data for each "by" value
+const fetchData = async (by) => {
+  try {
+    const result = await dashboardApi.getData({ by });
+    let sales = 0;
+    let customers = 0;
+    let chefs = 0;
+
+    result.forEach((item) => {
+      switch (item.type) {
+        case "ORDER":
+          sales += item.total;
+          break;
+        case "CHEF":
+          chefs += item.total;
+          break;
+        case "CUSTOMER":
+          customers += item.total;
+          break;
+        // Add cases for other types as needed
+      }
+    });
+
+    const convertedData = {
+      label: by.toLowerCase(),
+      value: {
+        sales: sales,
+        customers: customers,
+        chefs: chefs,
+      },
+    };
+    data.push(convertedData);
+  } catch (error) {
+    console.error("Error fetching data:", error);
+  }
+};
+by.forEach(fetchData);
 
 export const EcommerceStats = (props) => {
   // const { sales, customers, chefs } = props;
@@ -55,6 +97,7 @@ export const EcommerceStats = (props) => {
   // const formattedCustomers = numeral(customers).format("0");
   // const formattedChefs = numeral(chefs).format("0");
   // const formattedSales = numeral(sales).format("0");
+
   const [sortBy, setSortBy] = useState("week");
   const [sales, setSales] = useState(0);
   const [customers, setCustomers] = useState(0);

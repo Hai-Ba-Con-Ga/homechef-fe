@@ -31,7 +31,7 @@ const statusMap = {
 const transactionStatusMapping = {
   0: "pending",
   1: "completed",
-  2: "cancelled",
+  2: "rejected",
 };
 
 export const OrderDetails = (props) => {

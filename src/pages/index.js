@@ -18,9 +18,42 @@ import { EcommerceSalesByCountry } from "../sections/dashboard/ecommerce/ecommer
 import { EcommerceSalesRevenue } from "../sections/dashboard/ecommerce/ecommerce-sales-revenue";
 import { EcommerceStats } from "../sections/dashboard/ecommerce/ecommerce-stats";
 import { AnalyticsStats } from "../sections/dashboard/analytics/analytics-stats";
+import { dashboardApi } from "@/api/dashboard";
+import { useEffect, useState } from "react";
+
+function formatLargeNumber(number) {
+  const suffixes = ["", "K", "M", "B", "T"];
+  const suffixNum = Math.floor(("" + number).length / 3);
+  let shortValue = parseFloat(
+    (suffixNum != 0 ? number / Math.pow(1000, suffixNum) : number).toPrecision(
+      2
+    )
+  );
+  if (shortValue % 1 != 0) {
+    shortValue = shortValue.toFixed(1);
+  }
+  return shortValue + suffixes[suffixNum];
+}
 
 const Page = () => {
   const settings = useSettings();
+  const [data, setData] = useState([]);
+
+  const fetchData = async () => {
+    try {
+      const result = await dashboardApi.getTransactions();
+      console.log(result);
+      setData(result);
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  console.log(data);
 
   usePageView();
 
@@ -75,7 +108,7 @@ const Page = () => {
                     },
                   ]}
                   title="Revenue Today"
-                  value="2.2M VND"
+                  value={`${formatLargeNumber(data[0]?.amount)} VND`}
                 />
               </Grid>
               <Grid xs={12} md={4}>
@@ -89,7 +122,7 @@ const Page = () => {
                     },
                   ]}
                   title="Revenue Week"
-                  value="20.5M VND"
+                  value={`${formatLargeNumber(data[1]?.amount)} VND`}
                 />
               </Grid>
               <Grid xs={12} md={4}>
@@ -103,7 +136,7 @@ const Page = () => {
                     },
                   ]}
                   title="Revenue Month"
-                  value="80.5M VND"
+                  value={`${formatLargeNumber(data[2]?.amount)} VND`}
                 />
               </Grid>
             </Grid>
