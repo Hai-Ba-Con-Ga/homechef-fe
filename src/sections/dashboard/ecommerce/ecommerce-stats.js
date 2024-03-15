@@ -24,32 +24,6 @@ const sortOptions = [
   },
 ];
 
-// const data = [
-//   {
-//     label: "week",
-//     value: {
-//       sales: 45,
-//       customers: 17,
-//       chefs: 5,
-//     },
-//   },
-//   {
-//     label: "month",
-//     value: {
-//       sales: 189,
-//       customers: 51,
-//       chefs: 16,
-//     },
-//   },
-//   {
-//     label: "year",
-//     value: {
-//       sales: 300,
-//       customers: 600,
-//       chefs: 900,
-//     },
-//   },
-// ];
 let data = [];
 let by = ["WEEK", "MONTH"];
 
@@ -85,6 +59,7 @@ const fetchData = async (by) => {
       },
     };
     data.push(convertedData);
+    console.log(data);
   } catch (error) {
     console.error("Error fetching data:", error);
   }
