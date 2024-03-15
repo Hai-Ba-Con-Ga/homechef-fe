@@ -67,12 +67,6 @@ const fetchData = async (by) => {
 by.forEach(fetchData);
 
 export const EcommerceStats = (props) => {
-  // const { sales, customers, chefs } = props;
-
-  // const formattedCustomers = numeral(customers).format("0");
-  // const formattedChefs = numeral(chefs).format("0");
-  // const formattedSales = numeral(sales).format("0");
-
   const [sortBy, setSortBy] = useState("week");
   const [sales, setSales] = useState(0);
   const [customers, setCustomers] = useState(0);
@@ -87,9 +81,17 @@ export const EcommerceStats = (props) => {
   );
   useEffect(() => {
     const result = data.find((item) => item.label === sortBy);
-    setSales(result.value.sales);
-    setCustomers(result.value.customers);
-    setChefs(result.value.chefs);
+    console.log(result);
+    if (result) {
+      setSales(result.value.sales);
+      setCustomers(result.value.customers);
+      setChefs(result.value.chefs);
+    } else {
+      // Handle the case when no data is found for the selected sort option
+      setSales(0);
+      setCustomers(0);
+      setChefs(0);
+    }
   }, [sortBy]);
 
   return (
