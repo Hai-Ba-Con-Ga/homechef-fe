@@ -228,31 +228,31 @@ const Page = () => {
                       id: "5eff2512c6f8737d08325676",
                       image: "/assets/avatars/avatar-carson-darrin.png",
                       name: "Hong Tran",
-                      sales: 18,
+                      sales: 5,
                     },
                     {
                       id: "5e887b7602bdbc4dbb234b27",
                       image: "/assets/avatars/avatar-fran-perez.png",
                       name: "Cat Nguyen",
-                      sales: 15,
+                      sales: 3,
                     },
                     {
                       id: "5e86809283e28b96d2d38537",
                       image: "/assets/avatars/avatar-anika-visser.png",
                       name: "Thuy Tien",
-                      sales: 10,
+                      sales: 2,
                     },
                     {
                       id: "5eff251e297fd17f0dc18a8b",
                       image: "/assets/avatars/avatar-miron-vitold.png",
                       name: "Van Do",
-                      sales: 9,
+                      sales: 2,
                     },
                     {
                       id: "5eff2524ef813f061b3ea39f",
                       image: "/assets/avatars/avatar-anika-visser.png",
                       name: "Hoa Nguyen",
-                      sales: 7,
+                      sales: 0,
                     },
                   ]}
                   title={"Top Chefs of the Month"}
@@ -267,25 +267,25 @@ const Page = () => {
                       id: "5eff2512c6f8737d08325676",
                       image: "/assets/products/ga-kho.jpg",
                       name: "Gà kho gừng",
-                      sales: 18,
+                      sales: 10,
                     },
                     {
                       id: "5e887b7602bdbc4dbb234b27",
                       image: "/assets/products/canh-chua.jpg",
                       name: "Canh chua",
-                      sales: 15,
+                      sales: 8,
                     },
                     {
                       id: "5e86809283e28b96d2d38537",
                       image: "/assets/products/thit-kho-trung.jpg",
                       name: "Thịt kho tàu",
-                      sales: 10,
+                      sales: 5,
                     },
                     {
                       id: "5eff251e297fd17f0dc18a8b",
                       image: "/assets/products/thit-nuong.jpeg",
                       name: "Thịt nướng",
-                      sales: 9,
+                      sales: 5,
                     },
                   ]}
                   title={"Top Meals of the Month"}

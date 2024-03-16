@@ -64,7 +64,7 @@ export const EcommerceSalesByCountry = (props) => {
             Total
           </Typography>
           <Typography sx={{ mb: 3 }} variant="h5">
-            2M VND
+            2.2M VND
           </Typography>
           <Stack
             component="ul"

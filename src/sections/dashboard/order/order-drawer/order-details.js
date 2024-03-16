@@ -49,11 +49,13 @@ export const OrderDetails = (props) => {
   //handle approve
   const handleApprove = async () => {
     await ordersApi.updateStatus(order.id, { status: 1 });
+    await ordersApi.updateOrderStatus(order.id, { status: 1 });
     toast.success("Order approved");
     router.push(paths.orders.index);
   };
   const handleReject = async () => {
     await ordersApi.updateStatus(order.id, { status: 2 });
+    await ordersApi.updateOrderStatus(order.id, { status: 2 });
     toast.success("Order rejected");
     router.push(paths.orders.index);
   };

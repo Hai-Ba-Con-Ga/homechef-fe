@@ -1,9 +1,9 @@
-import { order, orders } from './data';
-import { deepCopy } from '../../utils/deep-copy';
-import { applyPagination } from '../../utils/apply-pagination';
-import { applySort } from '../../utils/apply-sort';
 import { tokenConfig } from "@/config";
-import { get, put, del, post } from "../../utils/caller";
+import { applyPagination } from "../../utils/apply-pagination";
+import { applySort } from "../../utils/apply-sort";
+import { get, put } from "../../utils/caller";
+import { deepCopy } from "../../utils/deep-copy";
+import { order, orders } from "./data";
 class OrdersApi {
   async getOrders(request = {}) {
     const { filters, page, rowsPerPage, sortBy, sortDir } = request;
@@ -67,6 +67,15 @@ class OrdersApi {
       return Promise.reject(new Error("Failed to update the order status"));
     }
 
+    return data;
+  }
+  async updateOrderStatus(orderId, request) {
+    const endpoint = `/order/${orderId}/status`;
+    const token = "Bearer " + tokenConfig.token;
+    const data = (await put(endpoint, request, { Authorization: token })).data;
+    if (typeof data === "undefined") {
+      return Promise.reject(new Error("Failed to update the order status"));
+    }
     return data;
   }
 }

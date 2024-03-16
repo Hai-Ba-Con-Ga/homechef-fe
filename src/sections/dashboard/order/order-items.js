@@ -40,7 +40,6 @@ export const OrderItems = (props) => {
               {items.map((item) => {
                 const title = `${item.name} x ${item.quantity}`;
                 const unitAmount = numeral(item.unitAmount).format(`${item.currency}0,0.00`);
-
                 return (
                   <TableRow key={item.id}>
                     <TableCell>
