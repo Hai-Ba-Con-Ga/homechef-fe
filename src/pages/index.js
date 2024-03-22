@@ -25,6 +25,7 @@ function formatLargeNumber(number) {
   const suffixes = ["", "K", "M", "B", "T"];
   const suffixNum = Math.floor(("" + number).length / 3);
   let shortValue = parseFloat(
+
     (suffixNum != 0 ? number / Math.pow(1000, suffixNum) : number).toPrecision(
       2
     )
@@ -121,7 +122,7 @@ const Page = () => {
                       ],
                     },
                   ]}
-                  title="Revenue Week"
+                  title="Revenue Month"
                   value={`${formatLargeNumber(data[1]?.amount)} VND`}
                 />
               </Grid>
@@ -135,7 +136,7 @@ const Page = () => {
                       ],
                     },
                   ]}
-                  title="Revenue Month"
+                  title="Revenue Year"
                   value={`${formatLargeNumber(data[2]?.amount)} VND`}
                 />
               </Grid>
