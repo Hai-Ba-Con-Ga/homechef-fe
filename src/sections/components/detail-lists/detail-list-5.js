@@ -70,10 +70,9 @@ export const DetailList5 = () => {
   return (
     <Box
       sx={{
-        backgroundColor: (theme) => theme.palette.mode === 'dark'
-          ? 'neutral.800'
-          : 'neutral.100',
-        p: 3
+        backgroundColor: (theme) =>
+          theme.palette.mode === "dark" ? "neutral.800" : "neutral.100",
+        p: 3,
       }}
     >
       <Card>
@@ -83,80 +82,48 @@ export const DetailList5 = () => {
           <TableBody>
             <TableRow>
               <TableCell>
-                <Typography variant="subtitle2">
-                  Customer
-                </Typography>
+                <Typography variant="subtitle2">Customer</Typography>
               </TableCell>
               <TableCell>
-                <div>
-                  {order.customer.name}
-                </div>
-                <div>
-                  {order.customer.address1}
-                </div>
-                <div>
-                  {order.customer.city}
-                </div>
-                <div>
-                  {order.customer.country}
-                </div>
+                <div>{order.customer.name}</div>
+                <div>{order.customer.address1}</div>
+                <div>{order.customer.city}</div>
+                <div>{order.customer.country}</div>
               </TableCell>
             </TableRow>
             <TableRow>
               <TableCell>
-                <Typography variant="subtitle2">
-                  ID
-                </Typography>
+                <Typography variant="subtitle2">ID</Typography>
               </TableCell>
-              <TableCell>
-                #{order.id}
-              </TableCell>
+              <TableCell>#{order.id}</TableCell>
             </TableRow>
             <TableRow>
               <TableCell>
-                <Typography variant="subtitle2">
-                  Number
-                </Typography>
+                <Typography variant="subtitle2">Quantity</Typography>
               </TableCell>
-              <TableCell>
-                {order.number}
-              </TableCell>
+              <TableCell>{order.number}</TableCell>
             </TableRow>
             <TableRow>
               <TableCell>
-                <Typography variant="subtitle2">
-                  Date
-                </Typography>
+                <Typography variant="subtitle2">Date</Typography>
               </TableCell>
-              <TableCell>
-                {createdAt}
-              </TableCell>
+              <TableCell>{createdAt}</TableCell>
             </TableRow>
             <TableRow>
               <TableCell>
-                <Typography variant="subtitle2">
-                  Promotion Code
-                </Typography>
+                <Typography variant="subtitle2">Promotion Code</Typography>
               </TableCell>
-              <TableCell>
-                {order.coupon ? order.coupon : 'N/A'}
-              </TableCell>
+              <TableCell>{order.coupon ? order.coupon : "N/A"}</TableCell>
             </TableRow>
             <TableRow>
               <TableCell>
-                <Typography variant="subtitle2">
-                  Total Amount
-                </Typography>
+                <Typography variant="subtitle2">Total Amount</Typography>
               </TableCell>
-              <TableCell>
-                {totalAmount}
-              </TableCell>
+              <TableCell>{totalAmount}</TableCell>
             </TableRow>
             <TableRow>
               <TableCell>
-                <Typography variant="subtitle2">
-                  Status
-                </Typography>
+                <Typography variant="subtitle2">Status</Typography>
               </TableCell>
               <TableCell>
                 <TextField
@@ -169,10 +136,7 @@ export const DetailList5 = () => {
                   variant="outlined"
                 >
                   {statusOptions.map((option) => (
-                    <option
-                      key={option}
-                      value={option}
-                    >
+                    <option key={option} value={option}>
                       {option}
                     </option>
                   ))}
@@ -184,11 +148,11 @@ export const DetailList5 = () => {
         <CardActions>
           <Button
             color="inherit"
-            startIcon={(
+            startIcon={
               <SvgIcon>
                 <ReceiptIcon />
               </SvgIcon>
-            )}
+            }
           >
             Resend Invoice
           </Button>

@@ -8,7 +8,6 @@ import {
   Typography,
 } from "@mui/material";
 import RefreshCcw01Icon from "@untitled-ui/icons-react/build/esm/RefreshCcw01";
-import ArrowRightIcon from "@untitled-ui/icons-react/build/esm/ArrowRight";
 import Head from "next/head";
 import { usePageView } from "../hooks/use-page-view";
 import { useSettings } from "../hooks/use-settings";

@@ -124,21 +124,20 @@ const getStatusPill = (orderStatus) => {
 export const Table4 = () => (
   <Box
     sx={{
-      backgroundColor: (theme) => theme.palette.mode === 'dark'
-        ? 'neutral.800'
-        : 'neutral.100',
-      p: 3
+      backgroundColor: (theme) =>
+        theme.palette.mode === "dark" ? "neutral.800" : "neutral.100",
+      p: 3,
     }}
   >
     <Card>
       <CardHeader
-        action={(
+        action={
           <IconButton>
             <SvgIcon>
               <DotsHorizontalIcon />
             </SvgIcon>
           </IconButton>
-        )}
+        }
         title="Orders"
       />
       <Divider />
@@ -149,48 +148,30 @@ export const Table4 = () => (
               <TableCell padding="checkbox">
                 <Checkbox />
               </TableCell>
-              <TableCell>
-                Number
-              </TableCell>
-              <TableCell>
-                Customer
-              </TableCell>
-              <TableCell>
-                Method
-              </TableCell>
-              <TableCell>
-                Total
-              </TableCell>
-              <TableCell>
-                Status
-              </TableCell>
-              <TableCell align="right">
-                Actions
-              </TableCell>
+              <TableCell>Quantity</TableCell>
+              <TableCell>Customer</TableCell>
+              <TableCell>Method</TableCell>
+              <TableCell>Total</TableCell>
+              <TableCell>Status</TableCell>
+              <TableCell align="right">Actions</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
             {orders.map((order) => {
-              const createdAt = format(order.createdAt, 'dd MMM yyyy | HH:mm');
-              const totalAmount = numeral(order.totalAmount).format(`${order.currency}0,0.00`);
+              const createdAt = format(order.createdAt, "dd MMM yyyy | HH:mm");
+              const totalAmount = numeral(order.totalAmount).format(
+                `${order.currency}0,0.00`
+              );
               const statusPill = getStatusPill(order.status);
 
               return (
-                <TableRow
-                  hover
-                  key={order.id}
-                >
+                <TableRow hover key={order.id}>
                   <TableCell padding="checkbox">
                     <Checkbox />
                   </TableCell>
                   <TableCell>
-                    <Typography variant="subtitle2">
-                      {order.number}
-                    </Typography>
-                    <Typography
-                      color="text.secondary"
-                      variant="body2"
-                    >
+                    <Typography variant="subtitle2">{order.number}</Typography>
+                    <Typography color="text.secondary" variant="body2">
                       {createdAt}
                     </Typography>
                   </TableCell>
@@ -198,22 +179,13 @@ export const Table4 = () => (
                     <Typography variant="subtitle2">
                       {order.customer.name}
                     </Typography>
-                    <Typography
-                      color="text.secondary"
-                      variant="body2"
-                    >
+                    <Typography color="text.secondary" variant="body2">
                       {order.customer.email}
                     </Typography>
                   </TableCell>
-                  <TableCell>
-                    {order.paymentMethod}
-                  </TableCell>
-                  <TableCell>
-                    {totalAmount}
-                  </TableCell>
-                  <TableCell>
-                    {statusPill}
-                  </TableCell>
+                  <TableCell>{order.paymentMethod}</TableCell>
+                  <TableCell>{totalAmount}</TableCell>
+                  <TableCell>{statusPill}</TableCell>
                   <TableCell align="right">
                     <IconButton>
                       <SvgIcon>
@@ -235,8 +207,8 @@ export const Table4 = () => (
       <TablePagination
         component="div"
         count={orders.length}
-        onPageChange={() => { }}
-        onRowsPerPageChange={() => { }}
+        onPageChange={() => {}}
+        onRowsPerPageChange={() => {}}
         page={0}
         rowsPerPage={5}
         rowsPerPageOptions={[5, 10, 25]}

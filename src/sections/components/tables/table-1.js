@@ -114,21 +114,20 @@ const labelColors = {
 export const Table1 = () => (
   <Box
     sx={{
-      backgroundColor: (theme) => theme.palette.mode === 'dark'
-        ? 'neutral.800'
-        : 'neutral.100',
-      p: 3
+      backgroundColor: (theme) =>
+        theme.palette.mode === "dark" ? "neutral.800" : "neutral.100",
+      p: 3,
     }}
   >
     <Card>
       <CardHeader
-        action={(
+        action={
           <IconButton>
             <SvgIcon>
               <DotsHorizontalIcon />
             </SvgIcon>
           </IconButton>
-        )}
+        }
         title="Latest Orders"
       />
       <Divider />
@@ -137,68 +136,44 @@ export const Table1 = () => (
           <TableHead>
             <TableRow>
               <TableCell sortDirection="desc">
-                <Tooltip
-                  enterDelay={300}
-                  title="Sort"
-                >
-                  <TableSortLabel
-                    active
-                    direction="desc"
-                  >
-                    Number
+                <Tooltip enterDelay={300} title="Sort">
+                  <TableSortLabel active direction="desc">
+                    Quantity
                   </TableSortLabel>
                 </Tooltip>
               </TableCell>
-              <TableCell>
-                Customer
-              </TableCell>
-              <TableCell>
-                Items
-              </TableCell>
-              <TableCell>
-                Total
-              </TableCell>
-              <TableCell>
-                Status
-              </TableCell>
-              <TableCell align="right">
-                Date
-              </TableCell>
+              <TableCell>Customer</TableCell>
+              <TableCell>Items</TableCell>
+              <TableCell>Total</TableCell>
+              <TableCell>Status</TableCell>
+              <TableCell align="right">Date</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
             {orders.map((order) => {
-              const totalAmount = numeral(order.totalAmount).format(`${order.currency}0,0.00`);
+              const totalAmount = numeral(order.totalAmount).format(
+                `${order.currency}0,0.00`
+              );
               const statusColor = labelColors[order.status];
-              const createdAt = format(order.createdAt, 'dd MMM, yyyy HH:mm:ss');
+              const createdAt = format(
+                order.createdAt,
+                "dd MMM, yyyy HH:mm:ss"
+              );
 
               return (
-                <TableRow
-                  hover
-                  key={order.id}
-                >
+                <TableRow hover key={order.id}>
                   <TableCell>
-                    <Typography variant="subtitle2">
-                      {order.number}
-                    </Typography>
+                    <Typography variant="subtitle2">{order.number}</Typography>
                   </TableCell>
-                  <TableCell>
-                    {order.customer.name}
-                  </TableCell>
-                  <TableCell>
-                    {order.items}
-                  </TableCell>
-                  <TableCell>
-                    {totalAmount}
-                  </TableCell>
+                  <TableCell>{order.customer.name}</TableCell>
+                  <TableCell>{order.items}</TableCell>
+                  <TableCell>{totalAmount}</TableCell>
                   <TableCell>
                     <SeverityPill color={statusColor}>
                       {order.status}
                     </SeverityPill>
                   </TableCell>
-                  <TableCell align="right">
-                    {createdAt}
-                  </TableCell>
+                  <TableCell align="right">{createdAt}</TableCell>
                 </TableRow>
               );
             })}
@@ -207,18 +182,18 @@ export const Table1 = () => (
       </Scrollbar>
       <Box
         sx={{
-          display: 'flex',
-          justifyContent: 'flex-end',
-          p: 2
+          display: "flex",
+          justifyContent: "flex-end",
+          p: 2,
         }}
       >
         <Button
           color="inherit"
-          endIcon={(
+          endIcon={
             <SvgIcon>
               <ChevronRightIcon />
             </SvgIcon>
-          )}
+          }
           size="small"
         >
           See All

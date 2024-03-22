@@ -95,7 +95,7 @@ export const OrderDetails = (props) => {
             align={align}
             disableGutters
             divider
-            label="Number"
+            label="Quantity"
             value={order.quantity}
           />
           <PropertyListItem

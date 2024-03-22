@@ -26,9 +26,7 @@ export const InvoicePreview = (props) => {
   const totalAmount = numeral(invoice.totalAmount).format(`${invoice.currency}0,0.00`);
 
   return (
-    <Card {...other}
-          sx={{ p: 6 }}
-    >
+    <Card {...other} sx={{ p: 6 }}>
       <Stack
         alignItems="flex-start"
         direction="row"
@@ -38,42 +36,27 @@ export const InvoicePreview = (props) => {
         <div>
           <Box
             sx={{
-              display: 'inline-flex',
+              display: "inline-flex",
               height: 24,
-              width: 24
+              width: 24,
             }}
           >
             <Logo />
           </Box>
-          <Typography variant="subtitle2">
-            www.devias.io
-          </Typography>
+          <Typography variant="subtitle2">www.devias.io</Typography>
         </div>
         <div>
-          <Typography
-            align="right"
-            color="success.main"
-            variant="h4"
-          >
+          <Typography align="right" color="success.main" variant="h4">
             {invoice.status.toUpperCase()}
           </Typography>
-          <Typography
-            align="right"
-            variant="subtitle2"
-          >
+          <Typography align="right" variant="subtitle2">
             {invoice.number}
           </Typography>
         </div>
       </Stack>
       <Box sx={{ mt: 4 }}>
-        <Grid
-          container
-          justifyContent="space-between"
-        >
-          <Grid
-            xs={12}
-            md={4}
-          >
+        <Grid container justifyContent="space-between">
+          <Grid xs={12} md={4}>
             <Typography variant="body2">
               Street King William, 123
               <br />
@@ -82,10 +65,7 @@ export const InvoicePreview = (props) => {
               San Francisco, CA, USA
             </Typography>
           </Grid>
-          <Grid
-            xs={12}
-            md={4}
-          >
+          <Grid xs={12} md={4}>
             <Typography variant="body2">
               Company No. 4675933
               <br />
@@ -93,14 +73,8 @@ export const InvoicePreview = (props) => {
               <br />
             </Typography>
           </Grid>
-          <Grid
-            xs={12}
-            md={4}
-          >
-            <Typography
-              align="right"
-              variant="body2"
-            >
+          <Grid xs={12} md={4}>
+            <Typography align="right" variant="body2">
               accounts@devias.io
               <br />
               (+40) 652 3456 23
@@ -109,59 +83,29 @@ export const InvoicePreview = (props) => {
         </Grid>
       </Box>
       <Box sx={{ mt: 4 }}>
-        <Grid
-          container
-          justifyContent="space-between"
-        >
-          <Grid
-            xs={12}
-            md={4}
-          >
-            <Typography
-              gutterBottom
-              variant="subtitle2"
-            >
+        <Grid container justifyContent="space-between">
+          <Grid xs={12} md={4}>
+            <Typography gutterBottom variant="subtitle2">
               Due date
             </Typography>
-            <Typography variant="body2">
-              {dueDate}
-            </Typography>
+            <Typography variant="body2">{dueDate}</Typography>
           </Grid>
-          <Grid
-            xs={12}
-            md={4}
-          >
-            <Typography
-              gutterBottom
-              variant="subtitle2"
-            >
+          <Grid xs={12} md={4}>
+            <Typography gutterBottom variant="subtitle2">
               Date of issue
             </Typography>
-            <Typography variant="body2">
-              {issueDate}
-            </Typography>
+            <Typography variant="body2">{issueDate}</Typography>
           </Grid>
-          <Grid
-            xs={12}
-            md={4}
-          >
-            <Typography
-              gutterBottom
-              variant="subtitle2"
-            >
-              Number
+          <Grid xs={12} md={4}>
+            <Typography gutterBottom variant="subtitle2">
+              Quantity
             </Typography>
-            <Typography variant="body2">
-              {invoice.number}
-            </Typography>
+            <Typography variant="body2">{invoice.number}</Typography>
           </Grid>
         </Grid>
       </Box>
       <Box sx={{ mt: 4 }}>
-        <Typography
-          gutterBottom
-          variant="subtitle2"
-        >
+        <Typography gutterBottom variant="subtitle2">
           Billed to
         </Typography>
         <Typography variant="body2">
@@ -177,122 +121,68 @@ export const InvoicePreview = (props) => {
       <Table sx={{ mt: 4 }}>
         <TableHead>
           <TableRow>
-            <TableCell>
-              #
-            </TableCell>
-            <TableCell>
-              Description
-            </TableCell>
-            <TableCell>
-              Qty
-            </TableCell>
-            <TableCell>
-              Unit Price
-            </TableCell>
-            <TableCell align="right">
-              Total
-            </TableCell>
+            <TableCell>#</TableCell>
+            <TableCell>Description</TableCell>
+            <TableCell>Qty</TableCell>
+            <TableCell>Unit Price</TableCell>
+            <TableCell align="right">Total</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
           {items.map((item, index) => {
-            const unitAmount = numeral(item.unitAmount).format(`${item.currency}0,0.00`);
-            const totalAmount = numeral(item.totalAmount).format(`${item.currency}0,0.00`);
+            const unitAmount = numeral(item.unitAmount).format(
+              `${item.currency}0,0.00`
+            );
+            const totalAmount = numeral(item.totalAmount).format(
+              `${item.currency}0,0.00`
+            );
 
             return (
               <TableRow key={item.id}>
-                <TableCell>
-                  {index + 1}
-                </TableCell>
-                <TableCell>
-                  {item.description}
-                </TableCell>
-                <TableCell>
-                  {item.quantity}
-                </TableCell>
-                <TableCell>
-                  {unitAmount}
-                </TableCell>
-                <TableCell align="right">
-                  {totalAmount}
-                </TableCell>
+                <TableCell>{index + 1}</TableCell>
+                <TableCell>{item.description}</TableCell>
+                <TableCell>{item.quantity}</TableCell>
+                <TableCell>{unitAmount}</TableCell>
+                <TableCell align="right">{totalAmount}</TableCell>
               </TableRow>
             );
           })}
           <TableRow>
-            <TableCell
-              colSpan={3}
-              sx={{ borderBottom: 'none' }}
-            />
-            <TableCell sx={{ borderBottom: 'none' }}>
-              <Typography variant="subtitle1">
-                Subtotal
-              </Typography>
+            <TableCell colSpan={3} sx={{ borderBottom: "none" }} />
+            <TableCell sx={{ borderBottom: "none" }}>
+              <Typography variant="subtitle1">Subtotal</Typography>
             </TableCell>
-            <TableCell
-              align="right"
-              sx={{ borderBottom: 'none' }}
-            >
-              <Typography variant="subtitle2">
-                {subtotalAmount}
-              </Typography>
+            <TableCell align="right" sx={{ borderBottom: "none" }}>
+              <Typography variant="subtitle2">{subtotalAmount}</Typography>
             </TableCell>
           </TableRow>
           <TableRow>
-            <TableCell
-              colSpan={3}
-              sx={{ borderBottom: 'none' }}
-            />
-            <TableCell sx={{ borderBottom: 'none' }}>
-              <Typography variant="subtitle1">
-                Taxes
-              </Typography>
+            <TableCell colSpan={3} sx={{ borderBottom: "none" }} />
+            <TableCell sx={{ borderBottom: "none" }}>
+              <Typography variant="subtitle1">Taxes</Typography>
             </TableCell>
-            <TableCell
-              align="right"
-              sx={{ borderBottom: 'none' }}
-            >
-              <Typography variant="subtitle2">
-                {taxAmount}
-              </Typography>
+            <TableCell align="right" sx={{ borderBottom: "none" }}>
+              <Typography variant="subtitle2">{taxAmount}</Typography>
             </TableCell>
           </TableRow>
           <TableRow>
-            <TableCell
-              colSpan={3}
-              sx={{ borderBottom: 'none' }}
-            />
-            <TableCell sx={{ borderBottom: 'none' }}>
-              <Typography variant="subtitle1">
-                Total
-              </Typography>
+            <TableCell colSpan={3} sx={{ borderBottom: "none" }} />
+            <TableCell sx={{ borderBottom: "none" }}>
+              <Typography variant="subtitle1">Total</Typography>
             </TableCell>
-            <TableCell
-              align="right"
-              sx={{ borderBottom: 'none' }}
-            >
-              <Typography variant="subtitle2">
-                {totalAmount}
-              </Typography>
+            <TableCell align="right" sx={{ borderBottom: "none" }}>
+              <Typography variant="subtitle2">{totalAmount}</Typography>
             </TableCell>
           </TableRow>
         </TableBody>
       </Table>
       <Box sx={{ mt: 2 }}>
-        <Typography
-          gutterBottom
-          variant="h6"
-        >
+        <Typography gutterBottom variant="h6">
           Notes
         </Typography>
-        <Typography
-          color="text.secondary"
-          variant="body2"
-        >
-          Please make sure you have the right bank registration number
-          as I
-          had issues before and make sure you guys cover transfer
-          expenses.
+        <Typography color="text.secondary" variant="body2">
+          Please make sure you have the right bank registration number as I had
+          issues before and make sure you guys cover transfer expenses.
         </Typography>
       </Box>
     </Card>

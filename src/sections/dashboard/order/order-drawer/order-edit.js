@@ -29,21 +29,13 @@ export const OrderEdit = (props) => {
   return (
     <Stack spacing={6}>
       <Stack spacing={3}>
-        <Typography variant="h6">
-          Details
-        </Typography>
+        <Typography variant="h6">Details</Typography>
         <Stack spacing={3}>
+          <TextField disabled fullWidth label="ID" name="id" value={order.id} />
           <TextField
             disabled
             fullWidth
-            label="ID"
-            name="id"
-            value={order.id}
-          />
-          <TextField
-            disabled
-            fullWidth
-            label="Number"
+            label="Quantity"
             name="number"
             value={order.number}
           />
@@ -94,21 +86,13 @@ export const OrderEdit = (props) => {
             value={order.status}
           >
             {statusOptions.map((option) => (
-              <option
-                key={option.value}
-                value={option.value}
-              >
+              <option key={option.value} value={option.value}>
                 {option.label}
               </option>
             ))}
           </TextField>
         </Stack>
-        <Stack
-          alignItems="center"
-          direction="row"
-          flexWrap="wrap"
-          spacing={2}
-        >
+        <Stack alignItems="center" direction="row" flexWrap="wrap" spacing={2}>
           <Button
             color="primary"
             onClick={onSave}
@@ -117,11 +101,7 @@ export const OrderEdit = (props) => {
           >
             Save changes
           </Button>
-          <Button
-            color="inherit"
-            onClick={onCancel}
-            size="small"
-          >
+          <Button color="inherit" onClick={onCancel} size="small">
             Cancel
           </Button>
         </Stack>
